@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import headphone from "../../assets/headphone.png";
-import Topnav from '../TopNavigation/Topnav';
-import './AddToCard.css';
+import headphone from "../assets/headphone.png"
+import Topnav from '../Components/TopNavigation/Topnav';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([

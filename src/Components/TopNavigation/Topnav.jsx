@@ -1,8 +1,6 @@
 import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 import moon from '../../assets/moon.png'
 import cart from '../../assets/cart.png'
 import user from '../../assets/user.png'
@@ -12,7 +10,9 @@ const Topnav = () => {
   return (
     <section className="Topnav-Container">
       <div className="Logo">
-        <h3>Logo</h3>
+        <Link to='/' className='link'>
+          <h3>Logo</h3>
+        </Link>
       </div>
 
       <div className="SearchBar">
@@ -21,13 +21,15 @@ const Topnav = () => {
 
       <div className="Menu">
         <div className="iconBackground" style={{ background: "white" }}>
-          <img src={moon} className='iconMoon'/>
+          <img src={moon} className="iconMoon" />
         </div>
         <div className="iconBackground" style={{ background: "white" }}>
-          <img src={cart} className='iconMoon'/>
+          <Link to="/productpage">
+            <img src={cart} className="iconMoon" />
+          </Link>
         </div>
-        <div className="iconBackground" style={{background:"white"}}>
-          <img src={user} className='iconMoon'/>
+        <div className="iconBackground" style={{ background: "white" }}>
+          <img src={user} className="iconMoon" />
         </div>
       </div>
 

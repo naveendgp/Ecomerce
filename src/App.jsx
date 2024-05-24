@@ -1,6 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-import AddToCard from "./Components/AddToCard/AddToCard";
+import ProductPage from "./Pages/ProductPage";
+import AddToCard from "./Pages/AddToCard"
 import CheckOut from "./Components/CheckOut/CheckOut";
 import Home from "./Pages/Home";
 
@@ -10,6 +11,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/productPage" element={<ProductPage/>} />
         <Route path="/addtocart" element={<AddToCard/>}/>
         <Route path="/checkout" element={<CheckOut/>}/>
       </Routes>

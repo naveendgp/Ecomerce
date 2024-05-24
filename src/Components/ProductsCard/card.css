@@ -21,13 +21,13 @@
     border-radius: 0px 0px 10px 10px;
 }
 
-.prodTitle{
+.prodCardTitle{
     height: fit-content;
     margin-top: 15px;
     margin-left: 10px;
 }
 
-.prodPrice{
+.prodCardPrice{
     margin-top: 15px;
     margin-left: 10px;
     color: rgb(171, 158, 158);
@@ -53,7 +53,7 @@
     width: 20px;
 }
 
-.prodImage{
+.prodCardImage{
     width: 37vh;
     height: 27vh;
 }
