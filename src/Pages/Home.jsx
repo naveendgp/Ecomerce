@@ -8,10 +8,8 @@ const Home = () => {
     <>
       <Topnav />
       <section className="main">
-
         <div className='Home'>
           <CardBanner />
-
           <div className="prodGrid">
             <ProductCard />
             <ProductCard />
@@ -20,9 +18,7 @@ const Home = () => {
             <ProductCard />
             <ProductCard />
           </div>
-
         </div>
-
       </section>
     </>
   );

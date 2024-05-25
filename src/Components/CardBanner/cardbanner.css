@@ -1,9 +1,7 @@
-
-.bannerContainer{
-    background-image: url('../../assets/banner.png');
+.bannerContainer {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     width: 161vh;
     height: 60vh;
     margin-top: 20px;
@@ -11,7 +9,17 @@
     border: 1px solid black;
 }
 
-.bannerImage{
+.carousel .slide img {
     width: 161vh;
-    height: 40vh;
+    height: 60vh;
+  }
+
+.carousel .legend {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1em;
 }
