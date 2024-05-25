@@ -24,7 +24,7 @@ const Topnav = () => {
           <img src={moon} className="iconMoon" />
         </div>
         <div className="iconBackground" style={{ background: "white" }}>
-          <Link to="/productpage">
+          <Link to="/addtocart">
             <img src={cart} className="iconMoon" />
           </Link>
         </div>
