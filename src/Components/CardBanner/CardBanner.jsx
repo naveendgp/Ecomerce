@@ -11,9 +11,9 @@ const CardBanner = () => {
     const handleKeyDown = (event) => {
       if (carouselRef.current) {
         if (event.key === 'ArrowLeft') {
-          carouselRef.current.onClickNext();
-        } else if (event.key === 'ArrowRight') {
           carouselRef.current.onClickPrev();
+        } else if (event.key === 'ArrowRight') {
+          carouselRef.current.onClickNext();
         }
       }
     };
@@ -29,15 +29,13 @@ const CardBanner = () => {
       <Carousel ref={carouselRef}>
         <div>
           <img src={img} alt="Banner 1" className="bannerImage" />
-          <p className="legend">slide 1</p>
+          
         </div>
         <div>
           <img src={img} alt="Banner 2" className="bannerImage" />
-          <p className="legend">slide 2</p>
         </div>
         <div>
           <img src={img} alt="Banner 3" className="bannerImage" />
-          <p className="legend">slide 3</p>
         </div>
       </Carousel>
     </div>

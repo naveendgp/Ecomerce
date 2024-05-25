@@ -2,7 +2,13 @@ import React from "react";
 import ProductImage from '../assets/productimage.png'
 import Cart from '../assets/cart.png'
 import Topnav from "../Components/TopNavigation/Topnav";
+import { useNavigate } from "react-router-dom";
+
+
 const ProductPage = () => {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Topnav/>
@@ -46,7 +52,7 @@ const ProductPage = () => {
                 functionality, this sweatshirt is your go-to for any season.
               </p>
               <div className="prodBuyContainer" >
-                <buttton className="Signup buy">
+                <buttton className="Signup buy" onClick={() => navigate('/checkout')}>
                   Buy Now
                 </buttton>
                   <button className="addCart Login cartbtn">

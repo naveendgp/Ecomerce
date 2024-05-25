@@ -131,6 +131,7 @@ body{
 .buy{
   display: flex;
   width: 35vh;
+  cursor: default;
   margin-top: 5vh;
   align-items: center;
   justify-content: center;
@@ -271,4 +272,116 @@ hr{
   margin-top: 5vh;
   margin-right: 5vh;
   margin-bottom: 3vh;
+}
+
+/* Checkout Page */
+
+.checkoutContainer{
+  display: flex;
+  width: 153vh;
+  min-height: 70vh;
+  border: 1px solid #ddd;
+  margin-top: 7vh;
+  background-color: white;
+  height: 100%;
+}
+
+.checkTitle{
+  display: flex;
+  justify-content: center;
+  margin-left: 50vh;
+  margin-top: 4vh;
+  font-family: "Work Sans";
+  font-size: 35px;
+}
+
+.paymentTitle{
+  font-family: "Work Sans";
+    font-weight: 900;
+    margin-left: 5vh;
+    margin-top: 3vh;
+}
+
+.paymentContainer{
+  display: flex;
+  height: 10vh;
+  width:60vh;
+  justify-content: space-around;
+  margin-left: 5vh;
+  margin-top: 3vh;
+}
+
+.paymentCard{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  width: 17vh;
+  height: 12vh;
+  border-radius: 5px;
+  background-color: #F8FAFB;
+  border: 1px solid #ddd;
+}
+
+.paymentIcon{
+  width: 4vh;
+  height: 4vh;
+  margin-left: 6.3vh;
+  margin-top: 3vh;
+  color: #0f4ed5;
+}
+
+.iconInfo{
+    font-family: "Work Sans";
+    font-weight: 900;
+    font-size: 14px;
+    margin-left: 6vh;
+    margin-top: 1vh;
+}
+
+.gpayIcon{
+  width: 6vh;
+  margin-left: 6vh;
+  margin-top: 2vh;
+  color: #0f4ed5;
+}
+
+.gpayInfo{
+   font-family: "Work Sans";
+    font-weight: 900;
+    font-size: 14px;
+    margin-left: 4vh;
+}
+
+.orderSummary{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vh;
+  height: 40vh;
+  margin-top: 14vh;
+  margin-left: 3vh;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.orderTitle{
+  display: flex;
+  justify-content: start;
+  margin-top: 3vh;
+  font-family: "Work Sans";
+  font-size: 20px;
+}
+
+.makePayment{
+    width: 40vh;
+    height: 5vh;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    margin-top: 3vh;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    border-radius: 5px;
+    background-color: #2550A9;
 }

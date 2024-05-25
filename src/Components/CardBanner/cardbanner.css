@@ -5,18 +5,23 @@
     width: 161vh;
     height: 60vh;
     margin-top: 20px;
-    border-radius: 5px;
-    border: 1px solid black;
+    border-radius: 10px;
 }
+
 
 .carousel .slide img {
     width: 161vh;
     height: 60vh;
   }
 
+.slide{
+    background-color: blue;
+}
+.carousel{
+    border-radius: 10px;
+}
+
 .carousel .legend {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
     padding: 10px;
     position: absolute;
     bottom: 20px;
