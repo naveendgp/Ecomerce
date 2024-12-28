@@ -5,8 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
 import googlepay from '../assets/google-pay.png'
+import { useLocation} from "react-router-dom";
+
 
 const CheckOut = () => {
+  const location = useLocation();
+    const { title, author, price, book, coverImage } = location.state || {};
 
   return (
     <>
@@ -52,11 +56,11 @@ const CheckOut = () => {
                 </h3>
               </div>
               <div className="part">
-                <h3 className="price">$84.44</h3>
-                <h3 className="price">$84.44</h3>
-                <h3 className="price">$4.44</h3>
+                <h3 className="price">${price}</h3>
+                <h3 className="price">$0</h3>
+                <h3 className="price">$20.44</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  $84.44
+                  ${price + 20.44}
                 </h3>
               </div>
             </div>

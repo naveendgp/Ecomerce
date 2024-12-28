@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import './cardbanner.css';
 import img from "../../assets/banner.png";
+import img1 from "../../assets/banner.jpg"
 
 const CardBanner = () => {
   const carouselRef = useRef(null);
@@ -32,7 +33,7 @@ const CardBanner = () => {
           
         </div>
         <div>
-          <img src={img} alt="Banner 2" className="bannerImage" />
+          <img src={img1} alt="Banner 2" className="bannerImage" />
         </div>
         <div>
           <img src={img} alt="Banner 3" className="bannerImage" />
