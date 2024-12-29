@@ -92,27 +92,11 @@ const Login = () => {
 
   return (
     <div className="gradient bg-dot-pattern h-screen">
-      <header className="navbar" style={{ color: "black" }}>
-        <div className="logo-container">
-          <span
-            className="logo-text"
-            style={{
-              fontSize: "30px",
-              marginLeft: "35px",
-              fontFamily: "Poppins",
-            }}
-          >
-            AI Interview
-          </span>
-        </div>
-      </header>
+      
       <div className="main-content bg-dotted h-screen relative w-full  ">
         <div className="absolute inset-0 bg-[radial-gradient(circle,white,transparent_1px)] bg-[length:50px_50px] pointer-events-none"></div>
 
-        <h1 style={{ fontSize: "35px", textAlign: "center" }}>
-          Empowering You to <br />
-          <span style={{ fontSize: "40px" }}>Ace Every Interview</span>
-        </h1>
+       
 
         {user ? (
           <div className="relative p-6 rounded-lg">
