@@ -35,7 +35,7 @@ const CheckOut = () => {
             <h3 className="checkTitle">Checkout</h3>
 
             {address ? (
-              <AddressCard />
+              <AddressCard changeAddress={() => setIsPopupOpen(true)}/>
             ) : (
               <div className="h-32">
                 <h1>Add Address</h1>
