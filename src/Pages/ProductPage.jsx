@@ -7,8 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const ProductPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { BookTitle, Author, Price, BookImage } = location.state || {};
-  console.log(location.state);
+  const { title, author, price, book, coverImage } = location.state || {};
 
   return (
     <>
@@ -17,25 +16,25 @@ const ProductPage = () => {
         <div className="Product">
           <section className="ProductContainer">
             <div className="productImageContainer">
-              <img src={BookImage} className="mainImage" alt={BookTitle || "Product"} />
+              <img src={coverImage} className="mainImage" />
             </div>
           </section>
           <div className="ProductDetails">
             <div>
-              <h5 className="productTitle">{BookTitle}</h5>
-              <h5 className="prodRating">Author : {Author}</h5>
-              <h3 className="prodPrice">${Price}</h3>
-              <h3 style={{ color: "#8A8A8A", marginTop: "2vh" }}>Subjects</h3>
-              <p className="prodDesc">hi</p>
-              <div className="prodBuyContainer">
-                <button
-                  className="Signup buy"
-                  onClick={() =>
-                    navigate("/checkout", {
-                      state: { BookTitle, Author, Price, BookImage },
-                    })
-                  }
-                >
+              <h5 className="productTitle">
+                {title} 
+              </h5>
+              <h5 className="prodRating">Author : {author}</h5>
+              <h3 className="prodPrice">${price}</h3>
+              <h3 style={{ color: "#8A8A8A", marginTop: "2vh" }}>
+              Subjects
+              </h3>
+              <p className="prodDesc">
+              </p>
+              <div className="prodBuyContainer" >
+                <buttton className="Signup buy" onClick={() => navigate('/checkout', {
+                  state: { title, author, price, book, coverImage },
+                })}>
                   Buy Now
                 </button>
                 <button className="addCart Login cartbtn">

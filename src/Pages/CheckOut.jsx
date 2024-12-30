@@ -17,7 +17,7 @@ const CheckOut = () => {
   const navigate = useNavigate();
   const { BookTitle, Author, Price, BookImage } = location.state || {};
 
-  const [address, setAddress] = useState(null); // Store the address data
+  const [address, setAddress] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
@@ -46,7 +46,7 @@ const CheckOut = () => {
                 <AddressCard address={address} changeAddress={() => setIsPopupOpen(true)} />
                 </>
             ) : (
-              <div className="h-32">
+              <div className="h-32 mt-6">
                 <h1>Add Address</h1>
                 <button
                   onClick={togglePopup}

@@ -37,7 +37,7 @@ body{
 .Product{
     display: flex;
     width: 150vh;
-    height: 100vh;
+    min-height: 80vh;
     margin-top: 5vh;
     border-radius: 10px;
     background-color: white;
@@ -203,7 +203,7 @@ body{
 .searchContainer input{
     display: flex;
     width: 27vh;
-    height: 4.5vh;
+    height: 2.5vh;
     margin-top: 1vh;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
@@ -234,7 +234,7 @@ body{
 
 hr{
   width: 50vh;
-  margin-top: 4vh;
+  margin-top: 5vh;
   border: 1px solid #ddd;
 }
 
