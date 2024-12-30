@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
 
-const orderSchema = new mongoose.Schema({
-    productId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Book' }, // Reference to the Book model
-    productName: { type: String, required: true },
-    price: { type: Number, required: true },
-    address: { type: String, required: true },
-    customerDetails: {
-        name: { type: String, required: true },
-        email: { type: String, required: true },
-        phone: { type: String, required: true },
-    },
-    orderDate: { type: Date, default: Date.now },
+const PaymentSchema = new mongoose.Schema({
+  BookTitle: { type: String },
+  Author: { type: String },
+  Price: { type: Number },
+  BookImage: { type: String },
+  paymentStatus: { type: String },
+  timestamp: { type: Date, default: Date.now },
+  address: {
+    firstName: { type: String },
+    lastName: { type: String },
+    streetAddress: { type: String },
+    landmark: { type: String },
+    pincode: { type: String },
+  },
 });
 
-const Order = mongoose.model('Order', orderSchema);
-
-module.exports = Order;
+module.exports = mongoose.model('Order', PaymentSchema);

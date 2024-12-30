@@ -2,12 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bookRoutes = require('./routes/bookRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors("*"));
 app.use('/api/books', bookRoutes);
 app.use('/api/orders', orderRoutes);
 
