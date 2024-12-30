@@ -15,7 +15,7 @@ const CheckOut = () => {
   const location = useLocation();
   const { title, author, price, book, coverImage } = location.state || {};
 
-  const [address, setAddress] = useState(true);
+  const [address, setAddress] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
@@ -37,7 +37,7 @@ const CheckOut = () => {
             {address ? (
               <AddressCard changeAddress={() => setIsPopupOpen(true)}/>
             ) : (
-              <div className="h-32">
+              <div className="h-32 mt-6">
                 <h1>Add Address</h1>
                 <button
                   onClick={togglePopup}

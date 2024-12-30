@@ -9,7 +9,7 @@ const ProductPage = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { title, author, price, book, coverImage } = location.state || {};
+  const { title, author, price, image } = location.state || {};
 
   return (
     <>
@@ -18,7 +18,7 @@ const ProductPage = () => {
           <div className="Product">
           <section className="ProductContainer">
             <div className="productImageContainer">
-              <img src={coverImage} className="mainImage" />
+              <img src={image} className="mainImage" />
             </div>
            
           </section>
@@ -29,9 +29,7 @@ const ProductPage = () => {
               </h5>
               <h5 className="prodRating">Author : {author}</h5>
               <h3 className="prodPrice">${price}</h3>
-              <h3 style={{ color: "#8A8A8A", marginTop: "2vh" }}>
-              Subjects
-              </h3>
+              
               <p className="prodDesc">
               </p>
               <div className="prodBuyContainer" >

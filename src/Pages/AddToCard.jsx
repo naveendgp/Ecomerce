@@ -24,11 +24,10 @@ const Cart = () => {
 
           <div className="cartTotal">
             <h4 className="promoTitle">Promo Code</h4>
-            <div className="searchContainer">
-              <input placeholder="Type here..." />
-              <button className="apply">Apply</button>
+            <div className="searchContainer p-5 flex items-center">
+              <input placeholder="Type here..."  />
+              <button className="apply mb-1 border border-black" >Apply</button>
             </div>
-            <hr />
             <div className="priceContainer">
               <div className="part">
                 <h3 className="price">SubTotal</h3>
