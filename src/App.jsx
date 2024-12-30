@@ -5,6 +5,7 @@ import AddToCard from "./Pages/AddToCard";
 import CheckOut from "./Pages/CheckOut";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import PaymentPage from "./Pages/paymentPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/productPage" element={<ProductPage />} />
         <Route path="/addtocart" element={<AddToCard />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/pay" element={<PaymentPage />} />
       </Routes>
     </Router>
   );
