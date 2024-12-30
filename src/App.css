@@ -385,3 +385,7 @@ hr{
     border-radius: 5px;
     background-color: #2550A9;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

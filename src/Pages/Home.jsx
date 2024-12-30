@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Topnav from '../Components/TopNavigation/Topnav';
 import CardBanner from '../Components/CardBanner/CardBanner';
 import ProductCard from '../Components/ProductsCard/ProductCard';
+import BookCard from '../Components/BookCard/BookCard';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -29,15 +30,14 @@ const Home = () => {
       <section className="main">
         <div className="Home">
           <CardBanner />
-          <div className="prodGrid">
+          <div className="prodGrid mt-24">
             {books.map((book, index) => (
-              <ProductCard
+              <BookCard
                 key={index}
-                title={book.title}
-                author={book.authors?.[0]?.name || 'Unknown Author'}
-                price ={book.edition_count}
-                book = {book}
-                coverImage={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`}
+                BookTitle={book.title}
+                Author={book.authors?.[0]?.name || 'Unknown Author'}
+                Price ={book.edition_count}
+                BookImage={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`}
               />
             ))}
           </div>

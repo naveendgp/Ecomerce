@@ -7,8 +7,8 @@ const SearchBar = () => {
   return (
     <div className='Searchbar-Container'>
         <FontAwesomeIcon icon={faSearch} className='searchIcon'/>
-        <div className='input-container'>
-            <input placeholder='Search'/>
+        <div className='input-container p-2'>
+            <input placeholder='Search' className='h-full '/>
         </div>
     </div>
   )
