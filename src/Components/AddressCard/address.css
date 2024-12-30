@@ -3,10 +3,9 @@
 .addressContainer{
     display: flex;
     flex-direction: column;
-    width: 90vh;
+    width: 80vh;
     height: 23vh;
     margin-top: 5vh;
-    margin-left: 5vh;
     border-radius: 7px;
     border: 1px solid #ddd;
 }
@@ -22,7 +21,7 @@
     font-family: "Work Sans";
     font-weight: 900;
     margin-left: 5vh;
-    margin-top: 3vh;
+    margin-top: 2vh;
 }
 
 .addressDesc{
@@ -36,7 +35,7 @@
 .changeBtn{
     width: 20vh;
     margin-top: 2vh;
-    margin-left: 70vh;
+    margin-left: 60vh;
     background-color: transparent;
     border: none;
     font-size: 20px;

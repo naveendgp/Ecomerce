@@ -298,7 +298,6 @@ hr{
 .paymentTitle{
   font-family: "Work Sans";
     font-weight: 900;
-    margin-left: 5vh;
     margin-top: 3vh;
 }
 
@@ -307,7 +306,6 @@ hr{
   height: 10vh;
   width:60vh;
   justify-content: space-around;
-  margin-left: 5vh;
   margin-top: 3vh;
 }
 

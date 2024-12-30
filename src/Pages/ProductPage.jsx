@@ -33,7 +33,6 @@ const ProductPage = () => {
               Subjects
               </h3>
               <p className="prodDesc">
-                {book.subject.join(", ")}
               </p>
               <div className="prodBuyContainer" >
                 <buttton className="Signup buy" onClick={() => navigate('/checkout', {

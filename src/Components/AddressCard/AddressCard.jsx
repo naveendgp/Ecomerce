@@ -2,7 +2,7 @@ import React from "react";
 import './address.css'
 
 
-const AddressCard = () =>{
+const AddressCard = ({changeAddress}) =>{
 
     return (
       <>
@@ -13,7 +13,7 @@ const AddressCard = () =>{
             Mr John Smith: 132, My Street, Kingston, New York 12401
           </h4>
 
-          <button className="changeBtn">Change</button>
+          <button className="changeBtn" onClick={changeAddress}>Change</button>
         </div>
       </>
     );
