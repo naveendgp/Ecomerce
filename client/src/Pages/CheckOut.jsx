@@ -9,19 +9,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import googlepay from "../assets/google-pay.png";
 import { useLocation } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import PopupCard from "../Components/PopupCard/PopupCard";
 
 const CheckOut = () => {
   const location = useLocation();
-  const { title, author, price, book, coverImage } = location.state || {};
+  const navigate = useNavigate();
+  const { BookTitle, Author, Price, BookImage } = location.state || {};
 
-  const [address, setAddress] = useState(false);
+  const [address, setAddress] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
-  
+
+  const handleSaveAddress = (addressData) => {
+    setAddress(addressData); // Save the address data
+  };
+
   return (
     <>
       <Topnav />
@@ -35,7 +41,10 @@ const CheckOut = () => {
             <h3 className="checkTitle">Checkout</h3>
 
             {address ? (
-              <AddressCard changeAddress={() => setIsPopupOpen(true)}/>
+              <>
+                <h2 style={{ fontWeight: 'bold', fontSize: '20px', color: '#333' }}>Address</h2>
+                <AddressCard address={address} changeAddress={() => setIsPopupOpen(true)} />
+                </>
             ) : (
               <div className="h-32 mt-6">
                 <h1>Add Address</h1>
@@ -49,7 +58,7 @@ const CheckOut = () => {
               </div>
             )}
 
-            <h3 className="paymentTitle">Payment Method</h3>
+            <h3 className="paymentTitle" style={{ fontWeight: 'bold', fontSize: '20px', color: '#333' }}>Payment Method</h3>
 
             <div className="paymentContainer">
               <div className="paymentCard">
@@ -72,7 +81,6 @@ const CheckOut = () => {
 
           <div className="orderSummary">
             <h3 className="orderTitle">Order Summary</h3>
-
             <div className="priceContainer">
               <div className="part">
                 <h3 className="price">SubTotal</h3>
@@ -83,19 +91,24 @@ const CheckOut = () => {
                 </h3>
               </div>
               <div className="part">
-                <h3 className="price">${price}</h3>
+                <h3 className="price">${Price}</h3>
                 <h3 className="price">$0</h3>
                 <h3 className="price">$20.44</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  ${price + 20.44}
+                  ${Price + 20.44}
                 </h3>
               </div>
             </div>
-            <button className="makePayment">Make Payment</button>
+              <button className="makePayment"
+               onClick={() =>
+                navigate("/pay", {
+                  state: { BookTitle, Author, Price, BookImage,address },
+                })
+              }
+              >Make Payment</button>
           </div>
         </div>
 
-        {/* Popup Card */}
         {isPopupOpen && (
           <>
             <div
@@ -104,7 +117,7 @@ const CheckOut = () => {
             ></div>
 
             <div className="fixed top-1/2 left-[45%] transform -translate-x-1/2 -translate-y-1/2 w-[60vh] z-20">
-              <PopupCard cancel={togglePopup} />
+              <PopupCard cancel={togglePopup} onSave={handleSaveAddress} />
             </div>
           </>
         )}
@@ -112,5 +125,7 @@ const CheckOut = () => {
     </>
   );
 };
+
+
 
 export default CheckOut;
