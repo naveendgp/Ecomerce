@@ -21,7 +21,7 @@ const CheckOut = () => {
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
-
+  
   return (
     <>
       <Topnav />
