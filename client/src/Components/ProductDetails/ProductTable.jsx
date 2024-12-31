@@ -3,13 +3,13 @@ const ProductTable = () => {
     <>
       <section className="min-h-full w-fit rounded-md">
         <div className="bg-[#1F272F] p-4 rounded-md">
-          <table className="w-[60vw] rounded-md">
+          <table className="w-[60vw] rounded-md ">
             <thead
-              className=" w-full justify-evenly   bg-gray-700"
+              className=" w-full justify-evenly  bg-gray-700"
               style={{ borderRadius: "10px" }}
             >
               <tr className="text-white text-center">
-                <th className="w-1/4 p-2  rounded-l-md">Product Name</th>{" "}
+                <th className="w-1/4 p-2 rounded-l-md">Product Name</th>{" "}
                 {/* Top-left border radius */}
                 <th className="w-1/4 p-2">Price</th>
                 <th className="w-1/4 p-2">Quantity</th>

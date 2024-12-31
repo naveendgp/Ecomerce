@@ -12,6 +12,30 @@ body{
 
 /* Home */
 
+/* WebKit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2d2d2d; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #161B21; /* Color of the draggable part */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color:#161B21; /* Change color when hovering */
+}
+
+/* Firefox */
+scrollbar-width: thin; /* Make the scrollbar thin */
+scrollbar-color: #4b6bfb #2d2d2d; /* Set the color for the thumb and track */
+
+
 .main{
     display: flex;
     height: 100%;
