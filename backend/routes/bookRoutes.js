@@ -1,31 +1,28 @@
 const express = require('express');
-const Book = require('../models/bookModel');
+const Product = require('../models/bookModel');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get("/products", async (req, res) => {
     try {
-        const books = await Book.find();
-        res.status(200).json(books);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+      const products = await Product.find();
+      res.json(products);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
     }
-});
-
-router.post('/', async (req, res) => {
-    const { title, author, price, imageUrl, rating, category } = req.body;
-
-    if (!title || !author || !price || !imageUrl || !rating || !category) {
-        return res.status(400).json({ error: 'All fields are required' });
-    }
-
+  });
+  
+  router.post("/products", async (req, res) => {
+    const { title, author, price, quantity,category, image, description } = req.body;
+  
+    const product = new Product({ title, author, price, quantity,category, image, description });
+  
     try {
-        const newBook = new Book({ title, author, price, imageUrl, rating, category });
-        await newBook.save();
-        res.status(201).json(newBook);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+      await product.save();
+      res.status(201).json({ message: "Product added successfully" });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
     }
-});
+  });
 
 module.exports = router;

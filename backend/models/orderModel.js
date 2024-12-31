@@ -5,6 +5,8 @@ const PaymentSchema = new mongoose.Schema({
   Author: { type: String },
   Price: { type: Number },
   BookImage: { type: String },
+  quantity: { type: Number },
+  category: { type: String },
   paymentStatus: { type: String },
   timestamp: { type: Date, default: Date.now },
   address: {

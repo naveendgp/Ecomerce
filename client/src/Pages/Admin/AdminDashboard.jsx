@@ -3,7 +3,24 @@ import ProductTable from "../../Components/ProductDetails/ProductTable";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 const AdminDashbaord = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch the data from your backend API
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/orders");
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <section className="flex bg-[#161B21] h-screen">
       <Sidenav />
@@ -20,7 +37,7 @@ const AdminDashbaord = () => {
             </Link>
           </div>
 
-          <ProductTable />
+          <ProductTable response={products}/>
         </div>
       </div>
     </section>

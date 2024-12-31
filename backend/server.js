@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors("*"));
-app.use('/api/books', bookRoutes);
+app.use('/api', bookRoutes);
 app.use('/api/orders', orderRoutes);
 
 
