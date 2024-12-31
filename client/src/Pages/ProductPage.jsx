@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const ProductPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { title, author, price, book, coverImage } = location.state || {};
+  const { BookTitle, Author, Price, BookImage } = location.state || {}; 
 
   return (
     <>
@@ -16,29 +16,27 @@ const ProductPage = () => {
         <div className="Product">
           <section className="ProductContainer">
             <div className="productImageContainer">
-              <img src={coverImage} className="mainImage" />
+              <img src={BookImage} className="mainImage" />
             </div>
           </section>
           <div className="ProductDetails">
             <div>
               <h5 className="productTitle">
-                {title} 
+                {BookTitle} 
               </h5>
-              <h5 className="prodRating">Author : {author}</h5>
-              <h3 className="prodPrice">${price}</h3>
-              <h3 style={{ color: "#8A8A8A", marginTop: "2vh" }}>
-              Subjects
-              </h3>
+              <h5 className="prodRating">Author : {Author}</h5>
+              <h3 className="prodPrice">${Price}</h3>
+            
               <p className="prodDesc">
               </p>
               <div className="prodBuyContainer" >
                 <buttton className="Signup buy" onClick={() => navigate('/checkout', {
-                  state: { title, author, price, book, coverImage },
+                  state: { BookTitle, Author, Price, BookImage },
                 })}>
                   Buy Now
-                </button>
-                <button className="addCart Login cartbtn">
-                  <img src={Cart} className="cartIcon" alt="Cart" />
+                </buttton>
+                <button className="addCart Login cartbtn ml-5">
+                  <img src={Cart} className="w-8 p-2" alt="Cart" />
                 </button>
               </div>
             </div>
