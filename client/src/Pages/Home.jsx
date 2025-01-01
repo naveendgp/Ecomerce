@@ -44,6 +44,7 @@ const Home = () => {
 
   // Handle search input
   const handleSearch = (query) => {
+    console.log(query)
     const updatedBooks = books.filter((book) =>
       book.title.toLowerCase().includes(query.toLowerCase())
     );
@@ -52,7 +53,7 @@ const Home = () => {
 
   return (
     <>
-      <Navigation />
+      <Navigation OnSearch={handleSearch} />
       <section className="main mt-20">
         <div className="Home">
           <div className="mt-10">
@@ -60,22 +61,14 @@ const Home = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="mt-5">
-            <SearchBar onSearch={handleSearch} />
-          </div>
+          
 
           <div>
             <h2 className="text-2xl font-semibold mt-10 font-poppins">
               Categories
             </h2>
             <div className="flex">
-              <CategoriesCard
-                Category={"All"}
-                image={space}
-                categoryColor={"bg-gray-300"}
-                imageColor={"bg-gray-400"}
-                onClick={() => handleCategorySelection("All")}
-              />
+             
               <CategoriesCard
                 Category={"Scientific"}
                 image={rocket}
@@ -114,7 +107,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="prodGrid mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="prodGrid mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[40px]">
             {filteredBooks.map((book) => (
               <BookCard
                 key={book._id}

@@ -92,7 +92,7 @@ const Cart = () => {
       <section className="main mt-20">
         <div className="cartContainer">
           <div className="cartProducts">
-            <h3 className="cartTitle">Cart Items</h3>
+            <h3 className="font-poppins text-3xl mt-10">Cart Items</h3>
             <div style={{ marginBottom: "5vh" }}>
               {cart.length > 0 ? (
                 cart.map((item, index) => (

@@ -12,40 +12,39 @@ const CartItems = ({ BookImage, BookTitle, Author, Price, onQuantityChange, init
     onQuantityChange(BookTitle, newCount, Price * newCount);
   };
 
-  return (
-    <div className="cartProdContainer bg-gray-100">
-      <div className="cartImageContainer">
-        <img src={BookImage} alt={BookTitle} className="object-fit" />
-      </div>
+    return (
+      <>
+        <div className="cartProdContainer bg-gray-100">
+          <div className="cartImageContainer">
+            <img src={Bookcover} alt="" className="object-fit" />
+          </div>
 
       <div className="cartProdName">
         <h3>{BookTitle}</h3>
         <p>{Author}</p>
       </div>
 
-      <div className="cartQtyController">
-        <button
-          className="qtyMinusBtn"
-          onClick={() => handleCountChange(count > 1 ? count - 1 : 1)}
-        >
-          <FontAwesomeIcon icon={faMinus} />
-        </button>
+          <div className="cartQtyController">
+            <button
+              className="qtyMinusBtn"
+              onClick={() => setCount(count > 0 ? count - 1 : 0)}
+            >
+              <FontAwesomeIcon icon={faMinus} />
+            </button>
 
-        <h3>{count}</h3>
-        
-        <button
-          className="qtyBtn"
-          onClick={() => handleCountChange(count + 1)}
-        >
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
-      </div>
+            <h3>{count}</h3>
+            
+            <button className="qtyBtn" onClick={() => setCount(count + 1)}>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
 
-      <div className="cartProdPrice">
-        <h3>${(Price * count).toFixed(2)}</h3>
-      </div>
-    </div>
-  );
-};
+          <div className="cartProdPrice">
+            <h3>$84.55</h3>
+          </div>
+        </div>
+      </>
+    );
+}
 
 export default CartItems;

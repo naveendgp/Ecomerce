@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../SearchBar/SearchBar";
 
-const Navigation = () => {
+const Navigation = ({OnSearch}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [user, setUser] = useState(false);
   const [name, setName] = useState(null);
@@ -65,7 +65,7 @@ const Navigation = () => {
         </Link>
 
         {/* Search Bar */}
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={OnSearch} />
 
       {/* Slider Icon */}
       <div className="bg-gray-100 border-gray-400 py-3 ml-[150px] px-4 rounded-full">
