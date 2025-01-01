@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bookRoutes = require('./routes/bookRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const cors = require('cors');
+const cartRouter = require('./routes/AddToCard');
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +12,8 @@ app.use(express.json());
 app.use(cors("*"));
 app.use('/api', bookRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/cart', cartRouter);
+
 
 
 const PORT = process.env.PORT || 5000;

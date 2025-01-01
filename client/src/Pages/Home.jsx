@@ -121,7 +121,7 @@ const Home = () => {
                 BookTitle={book.title}
                 Author={book.author}
                 Price={book.price}
-                BookImage={BookCover}
+                BookImage={book.image}
               />
             ))}
           </div>

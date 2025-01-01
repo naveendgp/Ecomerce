@@ -15,7 +15,12 @@ import PopupCard from "../Components/PopupCard/PopupCard";
 const CheckOut = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { BookTitle, Author, Price, BookImage } = location.state || {};
+  let { BookTitle, Author, Price, BookImage } = location.state || {};
+
+  if(!Price)
+  {
+    Price = 200;
+  }
 
   const [address, setAddress] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);

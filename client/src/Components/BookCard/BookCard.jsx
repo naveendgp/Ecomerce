@@ -4,6 +4,45 @@ import Cart from "../../assets/cart.png";
 const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
   const bookData = { BookTitle, Author, Price, BookImage };
 
+  const addToCart = async () => {
+    if (!BookTitle || !Author || !Price || !BookImage) {
+      alert('Please fill in all the required fields');
+      return;
+    }
+
+    const name = localStorage.getItem('name');
+    
+    const cartItemData = {
+      BookTitle,
+      Author,
+      Price,
+      BookImage,
+      name
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/cart/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          },
+        body: JSON.stringify(cartItemData)
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert('Item added to cart successfully');
+      } else {
+        alert(data.message || 'Failed to add item to cart');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while adding to cart');
+    }
+  };
+  
+
   return (
     <>
       <section className="border border-gray rounded-md h-[55vh] bg-gray-100 ">
@@ -21,15 +60,19 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
           <div className="flex mt-10 justify-center items-center mb-4">
             <Link
               to="/bookdetails"
-              state={bookData} // Directly pass state here
+              state={bookData} // Pass product data to the BookDetails page
             >
               <button className="bg-blue-900 text-white px-6 py-3 rounded-md">
                 Buy Now
               </button>
             </Link>
 
-            <button className="p-2 ml-5 rounded-md border border-gray-500">
-              <img src={Cart} alt="" className="w-8 p-1 border border-gray-100"/>
+            {/* Cart Button - Add to Cart functionality */}
+            <button 
+              onClick={addToCart} 
+              className="p-2 ml-5 rounded-md border border-gray-500"
+            >
+              <img src={Cart} alt="Add to Cart" className="w-8 p-1 border border-gray-100" />
             </button>
           </div>
         </div>

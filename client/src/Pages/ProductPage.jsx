@@ -29,11 +29,19 @@ const ProductPage = () => {
               <div className="prodBuyContainer">
                 <buttton
                   className="Signup buy bg-blue-900 text-white text-xl font-semibold px-6 py-3 rounded-md"
-                  onClick={() =>
+                  onClick={() => {
+                    const itemDetails = {
+                      BookTitle,
+                      Author,
+                      Price,
+                      BookImage,
+                    };
+                  
                     navigate("/checkout", {
-                      state: { BookTitle, Author, Price, BookImage },
-                    })
-                  }
+                      state: { itemDetails },
+                    });
+                  }}
+                  
                 >
                   Buy Now
                 </buttton>
