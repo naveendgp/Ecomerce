@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/books');
+        const response = await fetch('http://localhost:5000/api/products');
         const data = await response.json();
         console.log('Fetched Books:', data); // Debugging log
         setBooks(data); // Assuming the response is a list of books
@@ -35,7 +35,7 @@ const Home = () => {
                 BookTitle={book.title}
                 Author={book.author}
                 Price={book.price}
-                BookImage={book.imageUrl}
+                BookImage={book.image}
               />
             ))}
           </div>

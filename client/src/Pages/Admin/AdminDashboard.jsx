@@ -11,7 +11,7 @@ const AdminDashbaord = () => {
     // Fetch the data from your backend API
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/orders");
+        const response = await fetch("http://localhost:5000/api/products");
         const data = await response.json();
         setProducts(data);
       } catch (error) {

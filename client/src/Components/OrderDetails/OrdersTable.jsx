@@ -6,10 +6,10 @@ const ProductTable = ({ response }) => {
           <thead className="w-full justify-evenly bg-gray-700">
             <tr className="text-white text-center">
               <th className=" p-2 rounded-l-md">Product Name</th>
+              <th className=" p-2">category</th>
               <th className=" p-2">Price</th>
-              <th className=" p-2">Quantity</th>
+              <th className=" p-2">Qty</th>
               <th className=" p-2">User Name</th>
-              <th className=" p-2">User Contact</th>
               <th className=" p-2 rounded-tr-md rounded-r-md">Address</th>
             </tr>
           </thead>
@@ -20,16 +20,15 @@ const ProductTable = ({ response }) => {
                   key={index}
                   className="text-white text-center mt-10 border-b border-gray-700"
                 >
-                  <td className="p-4 truncate max-w-[200px]">
+                  <td className="p-0 truncate max-w-[200px]">
                     {product.BookTitle}
                   </td>
+                  <td className="p-2">{product.category}</td>
                   <td className="p-2">${product.Price}</td>
-                  <td className="p-2">{product.Quantity}</td>
-                  <td className="p-2">{product.UserName}</td>
-                  <td className="p-2">{product.UserContact}</td>
+                  <td className="p-1 w-[50px]">{product.quantity}</td>
+                  <td className="p-2">{product.address.firstName} {product.address.lastName}</td>
                   <td className="p-4 truncate max-w-[200px]">
-                    {product.UserAddress}
-                  </td>
+                  {product.address.streetAddress} {product.address.landmark} {product.address.pincode}                 </td>
                 </tr>
               ))
             ) : (
