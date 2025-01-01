@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './PaymentPage.css';
-import Topnav from '../Components/TopNavigation/Topnav';
-
+import Navigation from '../Components/TopNavigation/Navigation';
 const QRCodeDisplay = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -59,8 +58,8 @@ const QRCodeDisplay = () => {
 
   return (
     <>
-      <Topnav />
-      <div className="qr-code-container">
+      <Navigation />
+      <div className="qr-code-container mt-20">
         {!isPaymentComplete ? (
           <>
             <h1>QR Code for Payment</h1>

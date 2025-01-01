@@ -1,5 +1,5 @@
 import React from "react";
-import Topnav from "../Components/TopNavigation/Topnav";
+import Navigation from "../Components/TopNavigation/Navigation";
 import { Navigate, useNavigate } from "react-router-dom";
 import CartItems from "../Components/CartItems/CartItems";
 
@@ -9,8 +9,8 @@ const Cart = () => {
 
   return (
     <>
-      <Topnav />
-      <section className="main">
+      <Navigation />
+      <section className="main mt-20">
         <div className="cartContainer">
           <div className="cartProducts">
             <h3 className="cartTitle">Cart Items</h3>

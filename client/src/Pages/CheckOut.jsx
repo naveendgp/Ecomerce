@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddressCard from "../Components/AddressCard/AddressCard";
-import Topnav from "../Components/TopNavigation/Topnav";
+import Navigation from "../Components/TopNavigation/Navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCreditCard,
@@ -30,8 +30,8 @@ const CheckOut = () => {
 
   return (
     <>
-      <Topnav />
-      <section className="main">
+      <Navigation />
+      <section className="main mt-20">
         <div
           className={`checkoutContainer rounded-md flex justify-center ${
             isPopupOpen ? "blur-sm" : ""

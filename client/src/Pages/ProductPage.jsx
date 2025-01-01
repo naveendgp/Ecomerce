@@ -1,7 +1,7 @@
 import React from "react";
 import ProductImage from '../assets/productimage.png';
 import Cart from '../assets/cart.png';
-import Topnav from "../Components/TopNavigation/Topnav";
+import Navigation from "../Components/TopNavigation/Navigation";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const ProductPage = () => {
@@ -11,7 +11,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Topnav />
+      <Navigation />
       <section className="main">
         <div className="Product">
           <section className="ProductContainer">

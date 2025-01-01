@@ -40,8 +40,8 @@ const AddProduct = () => {
       const result = await response.json();
       if (response.ok) {
         alert("Product added successfully!");
-        window.location.reload();
-        navigate("admin/dashboard");
+        // window.location.reload();
+        // navigate("admin/dashboard");
       } else {
         alert(`Error: ${result.message}`);
       }
