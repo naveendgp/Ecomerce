@@ -9,6 +9,7 @@ import PaymentPage from "./Pages/paymentPage";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import AdminDashbaord from "./Pages/Admin/AdminDashboard";
 import AddProduct from "./Pages/Admin/AddProduct";
+import Orders from "./Pages/Admin/Orders";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashbaord />} />
         <Route path="/admin/addproduct" element={<AddProduct />} />
+        <Route path="/admin/orders" element={<Orders />} />
       </Routes>
     </Router>
   );

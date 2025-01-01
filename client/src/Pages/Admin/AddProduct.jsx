@@ -118,26 +118,28 @@ const AddProduct = () => {
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
             />
 
-            <h1 className="text-white text-xl ml-3">Description</h1>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows="3"
-              style={{
-                overflowY: "scroll",
-                scrollbarWidth: "none",
-              }}
-              placeholder="Book Description..."
-              className="w-96 m-4 p-2 rounded-md border border-gray-500 resize-none bg-zinc-700 outline-none text-gray-200"
-            />
+            <div className="flex flex-col ">
+              <h1 className="text-white text-xl ml-3">Description</h1>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                rows="3"
+                style={{
+                  overflowY: "scroll",
+                  scrollbarWidth: "none",
+                }}
+                placeholder="Book Description..."
+                className="w-96 m-4 p-2 rounded-md border border-gray-500 resize-none bg-zinc-700 outline-none text-gray-200"
+              />
 
-            <button
-              onClick={handleSubmit}
-              className="text-white py-2 px-3 bg-gray-700 rounded-md"
-            >
-              Add Product
-            </button>
+              <button
+                onClick={handleSubmit}
+                className="text-white py-2 ml-5 px-3 w-fit mt-5 bg-gray-700 rounded-md"
+              >
+                Add Product
+              </button>
+            </div>
           </div>
           <div className="bg-black-800">hello</div>
         </section>
