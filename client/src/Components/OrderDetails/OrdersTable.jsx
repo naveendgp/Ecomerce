@@ -5,12 +5,24 @@ const ProductTable = ({ response }) => {
         <table className="w-full rounded-md">
           <thead className="w-full justify-evenly bg-gray-700">
             <tr className="text-white text-center">
-              <th className=" p-2 rounded-l-md">Product Name</th>
-              <th className=" p-2">category</th>
-              <th className=" p-2">Price</th>
-              <th className=" p-2">Qty</th>
-              <th className=" p-2">User Name</th>
-              <th className=" p-2 rounded-tr-md rounded-r-md">Address</th>
+              <th className="p-2 rounded-l-md" scope="col">
+                Product Name
+              </th>
+              <th className="p-2" scope="col">
+                Category
+              </th>
+              <th className="p-2" scope="col">
+                Price
+              </th>
+              <th className="p-2" scope="col">
+                Qty
+              </th>
+              <th className="p-2" scope="col">
+                User Name
+              </th>
+              <th className="p-2 rounded-tr-md rounded-r-md" scope="col">
+                Address
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -21,14 +33,20 @@ const ProductTable = ({ response }) => {
                   className="text-white text-center mt-10 border-b border-gray-700"
                 >
                   <td className="p-0 truncate max-w-[200px]">
-                    {product.BookTitle}
+                    {product.BookTitle || "N/A"}
                   </td>
-                  <td className="p-2">{product.category}</td>
-                  <td className="p-2">${product.Price}</td>
-                  <td className="p-1 w-[50px]">{product.quantity}</td>
-                  <td className="p-2">{product.address.firstName} {product.address.lastName}</td>
+                  <td className="p-2">{product.category || "N/A"}</td>
+                  <td className="p-2">${product.Price || "0.00"}</td>
+                  <td className="p-1 w-[50px]">{product.quantity || 0}</td>
+                  <td className="p-2">
+                    {product.address?.firstName || "First Name"}{" "}
+                    {product.address?.lastName || "Last Name"}
+                  </td>
                   <td className="p-4 truncate max-w-[200px]">
-                  {product.address.streetAddress} {product.address.landmark} {product.address.pincode}                 </td>
+                    {product.address?.streetAddress || "Street"}{" "}
+                    {product.address?.landmark || ""}{" "}
+                    {product.address?.pincode || "Pincode"}
+                  </td>
                 </tr>
               ))
             ) : (
