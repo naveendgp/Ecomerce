@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Topnav from '../Components/TopNavigation/Topnav';
+import Navigation from '../Components/TopNavigation/Navigation';
 import CardBanner from '../Components/CardBanner/CardBanner';
 import BookCard from '../Components/BookCard/BookCard';
 
@@ -24,10 +25,11 @@ const Home = () => {
 
   return (
     <>
-      <Topnav />
-      <section className="main">
+      <Navigation />
+      <section className="main mt-20">
         <div className="Home">
           <CardBanner />
+
           <div className="prodGrid mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {books.map((book) => (
               <BookCard

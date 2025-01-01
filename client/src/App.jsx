@@ -10,6 +10,8 @@ import AdminLogin from "./Pages/Admin/AdminLogin";
 import AdminDashbaord from "./Pages/Admin/AdminDashboard";
 import AddProduct from "./Pages/Admin/AddProduct";
 import Orders from "./Pages/Admin/Orders";
+import '@fontsource/poppins';
+
 
 const App = () => {
   return (

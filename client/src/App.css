@@ -6,7 +6,7 @@
 }
 
 body{
-     background-color: #F6F7F9;
+     background-color: #ffffff;
 
 }
 
@@ -31,9 +31,6 @@ body{
   background-color:#161B21; /* Change color when hovering */
 }
 
-/* Firefox */
-scrollbar-width: thin; /* Make the scrollbar thin */
-scrollbar-color: #4b6bfb #2d2d2d; /* Set the color for the thumb and track */
 
 
 .main{

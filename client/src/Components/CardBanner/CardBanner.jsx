@@ -22,7 +22,7 @@ const CardBanner = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full mt-10 max-w-4xl mx-auto rounded-lg h-[30vh]">
+    <div className="relative w-full mt-10 max-w-4xl mx-auto rounded-lg h-[40vh]">
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"

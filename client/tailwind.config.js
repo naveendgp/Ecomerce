@@ -6,7 +6,12 @@ export default {
     './node_modules/@shadcn/ui/**/*.{js,ts,jsx,tsx}', 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+
+    },
   },
   plugins: [],
 }
