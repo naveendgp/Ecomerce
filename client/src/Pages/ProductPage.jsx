@@ -12,7 +12,7 @@ const ProductPage = () => {
   return (
     <>
       <Navigation />
-      <section className="main">
+      <section className="main mt-10">
         <div className="Product">
           <section className="ProductContainer">
             <div className="productImageContainer">
@@ -21,18 +21,20 @@ const ProductPage = () => {
           </section>
           <div className="ProductDetails">
             <div>
-              <h5 className="productTitle">
-                {BookTitle} 
-              </h5>
-              <h5 className="prodRating">Author : {Author}</h5>
-              <h3 className="prodPrice">${Price}</h3>
-            
-              <p className="prodDesc">
-              </p>
-              <div className="prodBuyContainer" >
-                <buttton className="Signup buy" onClick={() => navigate('/checkout', {
-                  state: { BookTitle, Author, Price, BookImage },
-                })}>
+              <h5 className="font-poppins text-5xl mt-5">{BookTitle}</h5>
+              <h5 className="font-poppins mt-2">Author : {Author}</h5>
+              <h3 className="mt-10  text-2xl">₹{Price}</h3>
+
+              <p className="prodDesc"></p>
+              <div className="prodBuyContainer">
+                <buttton
+                  className="Signup buy bg-blue-900 text-white text-xl font-semibold px-6 py-3 rounded-md"
+                  onClick={() =>
+                    navigate("/checkout", {
+                      state: { BookTitle, Author, Price, BookImage },
+                    })
+                  }
+                >
                   Buy Now
                 </buttton>
                 <button className="addCart Login cartbtn ml-5">

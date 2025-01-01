@@ -64,7 +64,7 @@ return (
       <SearchBar />
 
       {/* Slider Icon */}
-      <div className="bg-gray-100 border-gray-400 py-3 px-4 rounded-full">
+      <div className="bg-gray-100 border-gray-400 py-3 ml-[150px] px-4 rounded-full">
         <FontAwesomeIcon icon={faSliders} className="text-xl text-blue-900" />
       </div>
 
@@ -84,34 +84,40 @@ return (
       </div>
 
       {/* User Login/Logout Section */}
-      <div className=" flex items-center space-x-4">
-        {user ? (
-          <div className="flex items-center space-x-4">
-            <h3 className="text-2xl text-blue-800 font-poppins">Hi, {name}</h3>
+      <div className="w-[36vw] flex justify-end">
+        <div className=" flex items-center space-x-4">
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <h3 className="text-2xl text-blue-800 font-poppins">
+                Hi, {name}
+              </h3>
 
-            <div onClick={handleLogout} className="bg-gray-100 border-gray-400 py-3 px-4 rounded-full">
-              <FontAwesomeIcon
-                icon={faRightFromBracket}
-                className="text-xl text-blue-900"
-              />
+              <div
+                onClick={handleLogout}
+                className="bg-gray-100 border-gray-400 py-3 px-4 rounded-full"
+              >
+                <FontAwesomeIcon
+                  icon={faRightFromBracket}
+                  className="text-xl text-blue-900"
+                />
+              </div>
             </div>
-           
-          </div>
-        ) : (
-          <div className="flex items-center  space-x-4">
-            <Link to="/login">
-              <button className="px-7 py-2 rounded-md border border-blue-900">
-                Login
-              </button>
-            </Link>
+          ) : (
+            <div className="flex items-center  space-x-4">
+              <Link to="/login">
+                <button className="px-7 py-2 rounded-md border border-blue-900">
+                  Login
+                </button>
+              </Link>
 
-            <Link to="/login">
-              <button className="px-6 py-2 bg-blue-800 rounded-md text-white">
-                Sign Up
-              </button>
-            </Link>
-          </div>
-        )}
+              <Link to="/login">
+                <button className="px-6 py-2 bg-blue-800 rounded-md text-white">
+                  Sign Up
+                </button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   </section>

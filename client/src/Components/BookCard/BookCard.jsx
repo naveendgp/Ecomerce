@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import Cart from "../../assets/cart.png";
 
 const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
   const bookData = { BookTitle, Author, Price, BookImage };
 
   return (
     <>
-      <section className="border border-gray rounded-md h-[55vh] bg-white ">
+      <section className="border border-gray rounded-md h-[55vh] bg-gray-100 ">
         <div className="rounded-md p-4 flex-shrink-0">
           <img
             src={BookImage}
@@ -18,7 +19,7 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
           <p className="ml-4">{Author}</p>
           <p className="ml-4 mt-2">${Price}</p>
           <div className="flex mt-10 justify-center items-center mb-4">
-          <Link
+            <Link
               to="/bookdetails"
               state={bookData} // Directly pass state here
             >
@@ -26,12 +27,13 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
                 Buy Now
               </button>
             </Link>
-            
 
-
+            <button className="p-2 ml-5 rounded-md border border-gray-500">
+              <img src={Cart} alt="" className="w-8 p-1 border border-gray-100"/>
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };

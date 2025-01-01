@@ -36,7 +36,6 @@ const HeroCarousel = () => {
                 className="w-full h-full object-fit"
               />
               {/* Optional overlay to ensure text visibility */}
-              <div className="absolute inset-0 bg-black/30" />
             </div>
           ))}
         </div>

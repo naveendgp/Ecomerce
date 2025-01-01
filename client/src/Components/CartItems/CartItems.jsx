@@ -1,4 +1,5 @@
 import product from "../../assets/product.png"
+import Bookcover from '../../assets/bookcover.jpeg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { faMinus } from "@fortawesome/free-solid-svg-icons"
@@ -11,9 +12,9 @@ const CartItems = () => {
 
     return (
       <>
-        <div className="cartProdContainer">
+        <div className="cartProdContainer bg-gray-100">
           <div className="cartImageContainer">
-            <img src={product} alt="" />
+            <img src={Bookcover} alt="" className="object-fit" />
           </div>
 
           <div className="cartProdName">

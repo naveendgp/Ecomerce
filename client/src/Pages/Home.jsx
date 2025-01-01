@@ -8,6 +8,7 @@ import rocket from "../assets/rocket.png";
 import mortarboard from "../assets/mortarboard.png";
 import ink from "../assets/ink.png";
 import history from "../assets/history.png";
+import BookCover from '../assets/bookcover.jpeg';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -75,14 +76,14 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="prodGrid mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="prodGrid mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {books.map((book) => (
               <BookCard
                 key={book._id}
                 BookTitle={book.title}
                 Author={book.author}
                 Price={book.price}
-                BookImage={book.image}
+                BookImage={BookCover}
               />
             ))}
           </div>

@@ -27,7 +27,7 @@ const ProductCard = ({ title, author, price, book, coverImage }) => {
             >
               Buy Now
             </button>
-            <button className="addCart Login">
+            <button className="addCart Login border border-black ">
               <img src={Cart} className="cartIcon" alt="Cart Icon" />
             </button>
           </div>
