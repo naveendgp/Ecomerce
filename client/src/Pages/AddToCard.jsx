@@ -13,7 +13,7 @@ const Cart = () => {
       <section className="main mt-20">
         <div className="cartContainer">
           <div className="cartProducts">
-            <h3 className="cartTitle">Cart Items</h3>
+            <h3 className="font-poppins text-3xl mt-10">Cart Items</h3>
             <div style={{ marginBottom: "5vh" }}>
               <CartItems />
               <CartItems />
@@ -23,11 +23,11 @@ const Cart = () => {
           </div>
 
           <div className="cartTotal">
-            <h4 className="promoTitle">Promo Code</h4>
-            <div className="searchContainer p-5 flex items-center">
+            <h4 className=" mt-10 font-poppins  text-center text-3xl">Order Summary</h4>
+            {/* <div className="searchContainer p-5 flex items-center">
               <input placeholder="Type here..."  />
               <button className="apply mb-1 border border-black" >Apply</button>
-            </div>
+            </div> */}
             <div className="priceContainer">
               <div className="part">
                 <h3 className="price">SubTotal</h3>

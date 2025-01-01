@@ -12,7 +12,7 @@ const CartItems = () => {
 
     return (
       <>
-        <div className="cartProdContainer bg-gray-100">
+        <div className="cartProdContainer bg-zinc-50">
           <div className="cartImageContainer">
             <img src={Bookcover} alt="" className="object-fit" />
           </div>
@@ -23,7 +23,7 @@ const CartItems = () => {
 
           <div className="cartQtyController">
             <button
-              className="qtyMinusBtn"
+              className="qtyMinusBtn bg-white"
               onClick={() => setCount(count > 0 ? count - 1 : 0)}
             >
               <FontAwesomeIcon icon={faMinus} />
@@ -31,12 +31,12 @@ const CartItems = () => {
 
             <h3>{count}</h3>
             
-            <button className="qtyBtn" onClick={() => setCount(count + 1)}>
+            <button className="qtyBtn bg-white" onClick={() => setCount(count + 1)}>
               <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
 
-          <div className="cartProdPrice">
+          <div className="cartProdPrice text-xl text-blue-900">
             <h3>$84.55</h3>
           </div>
         </div>
