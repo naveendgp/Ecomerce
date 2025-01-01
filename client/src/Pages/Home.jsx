@@ -3,11 +3,11 @@ import Navigation from "../Components/TopNavigation/Navigation";
 import CardBanner from "../Components/CardBanner/CardBanner";
 import BookCard from "../Components/BookCard/BookCard";
 import CategoriesCard from "../Components/BookCard/CategoriesCard";
-import space from '../assets/space.png'
-import rocket from '../assets/rocket.png'
-import mortarboard from '../assets/mortarboard.png'
-import ink from '../assets/ink.png'
-import history from '../assets/history.png'
+import space from "../assets/space.png";
+import rocket from "../assets/rocket.png";
+import mortarboard from "../assets/mortarboard.png";
+import ink from "../assets/ink.png";
+import history from "../assets/history.png";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -51,10 +51,15 @@ const Home = () => {
               <CategoriesCard
                 Category={"Education"}
                 image={mortarboard}
-                categoryColor={'bg-yellow-300'}
-                imageColor={'bg-amber-400'}
+                categoryColor={"bg-yellow-300"}
+                imageColor={"bg-amber-400"}
               />
-              <CategoriesCard Category={"Fictional"} image={space}categoryColor={'bg-pink-300'} imageColor={'bg-pink-400'}/>
+              <CategoriesCard
+                Category={"Fictional"}
+                image={space}
+                categoryColor={"bg-pink-300"}
+                imageColor={"bg-pink-400"}
+              />
               <CategoriesCard
                 Category={"Novel"}
                 image={history}
