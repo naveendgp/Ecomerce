@@ -1,5 +1,6 @@
 import Sidenav from "../../Components/SideNavigation/Sidenav";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const AddProduct = () => {
     image: null,
     description: "",
   });
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +40,8 @@ const AddProduct = () => {
       const result = await response.json();
       if (response.ok) {
         alert("Product added successfully!");
+        window.location.reload();
+        navigate("admin/dashboard");
       } else {
         alert(`Error: ${result.message}`);
       }
