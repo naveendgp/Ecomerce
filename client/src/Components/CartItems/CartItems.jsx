@@ -40,7 +40,7 @@ const CartItems = ({ BookImage, BookTitle, Author, Price, onQuantityChange, init
           </div>
 
           <div className="cartProdPrice">
-            <h3>$84.55</h3>
+            <h3>{Price * count}</h3>
           </div>
         </div>
       </>
