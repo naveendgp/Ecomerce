@@ -15,15 +15,17 @@ import PopupCard from "../Components/PopupCard/PopupCard";
 const CheckOut = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  let { BookTitle, Author, Price, BookImage } = location.state || {};
+  const { BookTitle, Author, Price, BookImage, Quantity } = location.state || {};
 
-  if(!Price)
-  {
-    Price = 200;
-  }
 
   const [address, setAddress] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const [selectedMethod, setSelectedMethod] = useState("");
+
+  const handleSelect = (method) => {
+    setSelectedMethod(method);
+  };
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -66,29 +68,41 @@ const CheckOut = () => {
             <h3 className="paymentTitle" style={{ fontWeight: 'bold', fontSize: '20px', color: '#333' }}>Payment Method</h3>
 
             <div className="paymentContainer">
-              <div className="paymentCard">
-                <FontAwesomeIcon icon={faCreditCard} className="paymentIcon" />
-                <h4 className="iconInfo">Card</h4>
-              </div>
-              <div className="paymentCard">
-                <img src={googlepay} alt="Google Pay" className="gpayIcon" />
-                <h4 className="gpayInfo">Google Pay</h4>
-              </div>
-              <div className="paymentCard">
-                <FontAwesomeIcon
-                  icon={faBuildingColumns}
-                  className="paymentIcon"
-                />
-                <h4 className="iconInfo">Bank</h4>
-              </div>
-            </div>
+      {/* Card Payment */}
+      <div
+        className={`paymentCard ${selectedMethod === "card" ? "selected" : ""}`}
+        onClick={() => handleSelect("card")}
+      >
+        <FontAwesomeIcon icon={faCreditCard} className="paymentIcon" />
+        <h4 className="iconInfo">Card</h4>
+      </div>
+
+      {/* Google Pay */}
+      <div
+        className={`paymentCard ${selectedMethod === "googlepay" ? "selected" : ""}`}
+        onClick={() => handleSelect("googlepay")}
+      >
+        <img src={googlepay} alt="Google Pay" className="gpayIcon" />
+        <h4 className="gpayInfo">Google Pay</h4>
+      </div>
+
+      {/* Bank Payment */}
+      <div
+        className={`paymentCard ${selectedMethod === "bank" ? "selected" : ""}`}
+        onClick={() => handleSelect("bank")}
+      >
+        <FontAwesomeIcon icon={faBuildingColumns} className="paymentIcon" />
+        <h4 className="iconInfo">Bank</h4>
+      </div>
+    </div>
           </section>
 
-          <div className="orderSummary">
+          <div className="orderSummary" style={{height:"350px"}}>
             <h3 className="orderTitle">Order Summary</h3>
             <div className="priceContainer">
               <div className="part">
                 <h3 className="price">SubTotal</h3>
+                <h3 className="price">Quantity</h3>
                 <h3 className="price">Discount</h3>
                 <h3 className="price">Delivery</h3>
                 <h3 className="price" style={{ color: "black" }}>
@@ -97,14 +111,15 @@ const CheckOut = () => {
               </div>
               <div className="part">
                 <h3 className="price">${Price}</h3>
+                <h3 className="price">${Quantity}</h3>
                 <h3 className="price">$0</h3>
                 <h3 className="price">$20.44</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  ${Price + 20.44}
+                  ${Quantity * Price + 20.44}
                 </h3>
               </div>
             </div>
-              <button className="makePayment"
+              <button className="makePayment" style={{marginTop:"60px"}}
                onClick={() =>
                 navigate("/pay", {
                   state: { BookTitle, Author, Price, BookImage,address },

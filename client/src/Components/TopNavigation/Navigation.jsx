@@ -27,6 +27,10 @@ const Navigation = ({OnSearch}) => {
 
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+    localStorage.removeItem("uid");
+    localStorage.removeItem("photoURL");
     setUser(null);
   };
 
@@ -42,6 +46,8 @@ const Navigation = ({OnSearch}) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  const ProfileImg = localStorage.getItem("photoURL");
 
   const handleSearch = (query) => {
     console.log("Search query:", query);
@@ -83,15 +89,26 @@ const Navigation = ({OnSearch}) => {
         </Link>
 
         {/* User Icon */}
-        <div className="bg-gray-100 border-gray-400 py-3 px-4 rounded-full">
-          <FontAwesomeIcon icon={faUser} className="text-xl text-blue-900" />
-        </div>
+       
 
       {/* User Login/Logout Section */}
       <div className="w-[36vw] flex justify-end">
         <div className=" flex items-center space-x-4">
           {user ? (
+            
             <div className="flex items-center space-x-4">
+               <div className="bg-gray-100 border-gray-400  rounded-full">
+                  {ProfileImg ? (
+                    <img
+                      src={ProfileImg}
+                      alt="User Profile"
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <FontAwesomeIcon icon={faUser} className="text-xl text-blue-900" />
+                  )}
+                </div>
+
               <h3 className="text-2xl text-blue-800 font-poppins">
                 Hi, {name}
               </h3>

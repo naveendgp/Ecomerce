@@ -31,6 +31,8 @@ const Login = () => {
       localStorage.setItem("email", user.email);
       localStorage.setItem("name", user.displayName);
       localStorage.setItem("uid", user.uid);
+      localStorage.setItem("photoURL", user.photoURL); 
+
 
       setUser(user); // Update state with the signed-in user
       window.location.pathname = "/"; // Redirect after sign-in

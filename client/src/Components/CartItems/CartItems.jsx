@@ -16,7 +16,7 @@ const CartItems = ({ BookImage, BookTitle, Author, Price, onQuantityChange, init
       <>
         <div className="cartProdContainer bg-gray-100">
           <div className="cartImageContainer">
-            <img src={Bookcover} alt="" className="object-fit" />
+            <img src={BookImage} alt="" className="object-fit" />
           </div>
 
       <div className="cartProdName">
