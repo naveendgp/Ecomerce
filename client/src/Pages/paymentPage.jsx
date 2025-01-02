@@ -9,24 +9,30 @@ const QRCodeDisplay = () => {
   const navigate = useNavigate();
 
   // Destructure data passed via location.state
-  const { BookTitle, Author, Price, BookImage, address } = location.state || {};
+  const { BookTitle, Author, totalAmount, BookImage, address, Quantity } = location.state || {};
 
-  const qrData = JSON.stringify({ BookTitle, Price });
+  const qrData = JSON.stringify({ BookTitle, totalAmount });
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
 
   const handlePay = async () => {
     try {
-      alert(`Proceeding to pay for ${BookTitle} with price ₹${Price}`);
+      alert(`Proceeding to pay for ${BookTitle} with price ₹${totalAmount}`);
 
-      // Prepare the payload for the API call
-      const paymentData = {
+      // Create an array for the products data
+      const products = [{
         BookTitle,
         Author,
-        Price,
+        Price: totalAmount,
         BookImage,
+        quantity: Quantity,
+        
+      }];
+
+      const paymentData = {
+        products, // Now 'products' is an array of product objects
         paymentStatus: "Success",
         timestamp: new Date().toISOString(),
-        address, // Include the address
+        address, // Ensure address is an array
       };
 
       // Make the POST API call
@@ -72,9 +78,21 @@ const QRCodeDisplay = () => {
             </div>
             <div className="address-display w-full">
               <h3>Delivery Address</h3>
-              <p>{`${address.firstName} ${address.lastName}`}</p>
-              <p>{address.streetAddress}</p>
-              <p>{`${address.landmark}, ${address.pincode}`}</p>
+              {Array.isArray(address) ? (
+                address.map((addr, index) => (
+                  <div key={index}>
+                    <p>{`${addr.firstName} ${addr.lastName}`}</p>
+                    <p>{addr.streetAddress}</p>
+                    <p>{`${addr.landmark}, ${addr.pincode}`}</p>
+                  </div>
+                ))
+              ) : (
+                <div>
+                  <p>{`${address.firstName} ${address.lastName}`}</p>
+                  <p>{address.streetAddress}</p>
+                  <p>{`${address.landmark}, ${address.pincode}`}</p>
+                </div>
+              )}
             </div>
             <div className="flex justify-center">
               <button

@@ -35,6 +35,8 @@ const CheckOut = () => {
     setAddress(addressData); // Save the address data
   };
 
+  const totalAmount =Quantity * Price + 20.44;
+
   return (
     <>
       <Navigation />
@@ -115,14 +117,14 @@ const CheckOut = () => {
                 <h3 className="price">$0</h3>
                 <h3 className="price">$20.44</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  ${Quantity * Price + 20.44}
+                  ${totalAmount}
                 </h3>
               </div>
             </div>
               <button className="makePayment" style={{marginTop:"60px"}}
                onClick={() =>
                 navigate("/pay", {
-                  state: { BookTitle, Author, Price, BookImage,address },
+                  state: { BookTitle, Author, totalAmount, BookImage,address,Quantity },
                 })
               }
               >Make Payment</button>

@@ -35,7 +35,7 @@ const ProductTable = ({ response }) => {
                   <td className="p-0 truncate max-w-[200px]">
                     {product.BookTitle || "N/A"}
                   </td>
-                  <td className="p-2">{product.category || "N/A"}</td>
+                  <td className="p-2">{product.category || "Education"}</td>
                   <td className="p-2">${product.Price || "0.00"}</td>
                   <td className="p-1 w-[50px]">{product.quantity || 0}</td>
                   <td className="p-2">
