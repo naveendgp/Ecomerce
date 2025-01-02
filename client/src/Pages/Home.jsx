@@ -68,6 +68,13 @@ const Home = () => {
               Categories
             </h2>
             <div className="flex">
+              <CategoriesCard
+                Category={"All"}
+                image={space}
+                categoryColor={"bg-red-300"}
+                imageColor={"bg-red-400"}
+                onClick={() => handleCategorySelection("All")}
+              />
              
               <CategoriesCard
                 Category={"Scientific"}
@@ -81,7 +88,7 @@ const Home = () => {
                 image={mortarboard}
                 categoryColor={"bg-yellow-300"}
                 imageColor={"bg-amber-400"}
-                onClick={() => handleCategorySelection("Education")}
+                onClick={() => handleCategorySelection("Programming")}
               />
               <CategoriesCard
                 Category={"Fictional"}
