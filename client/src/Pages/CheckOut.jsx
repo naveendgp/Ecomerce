@@ -37,12 +37,22 @@ const CheckOut = () => {
 
   const totalAmount =Quantity * Price + 20.44;
 
+  const card = localStorage.getItem("cart");
+  console.log(card);
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const Amount = cart.reduce((total, product) => {
+    return total + product.Price; // Sum of Quantity * Price for each product
+  }, 0) + 20.44; // Add the delivery fee (₹20.44)
+  console.log(Amount);
+
+
   return (
     <>
       <Navigation />
       <section className="main mt-20">
         <div
-          className={`checkoutContainer rounded-md flex justify-center ${
+          className={`checkoutContainer rounded-md flex justify-center ₹{
             isPopupOpen ? "blur-sm" : ""
           }`}
         >
@@ -72,7 +82,7 @@ const CheckOut = () => {
             <div className="paymentContainer">
       {/* Card Payment */}
       <div
-        className={`paymentCard ${selectedMethod === "card" ? "selected" : ""}`}
+        className={`paymentCard ₹{selectedMethod === "card" ? "selected" : ""}`}
         onClick={() => handleSelect("card")}
       >
         <FontAwesomeIcon icon={faCreditCard} className="paymentIcon" />
@@ -81,7 +91,7 @@ const CheckOut = () => {
 
       {/* Google Pay */}
       <div
-        className={`paymentCard ${selectedMethod === "googlepay" ? "selected" : ""}`}
+        className={`paymentCard ₹{selectedMethod === "googlepay" ? "selected" : ""}`}
         onClick={() => handleSelect("googlepay")}
       >
         <img src={googlepay} alt="Google Pay" className="gpayIcon" />
@@ -90,7 +100,7 @@ const CheckOut = () => {
 
       {/* Bank Payment */}
       <div
-        className={`paymentCard ${selectedMethod === "bank" ? "selected" : ""}`}
+        className={`paymentCard ₹{selectedMethod === "bank" ? "selected" : ""}`}
         onClick={() => handleSelect("bank")}
       >
         <FontAwesomeIcon icon={faBuildingColumns} className="paymentIcon" />
@@ -112,14 +122,15 @@ const CheckOut = () => {
                 </h3>
               </div>
               <div className="part">
-                <h3 className="price">${Price}</h3>
-                <h3 className="price">${Quantity}</h3>
-                <h3 className="price">$0</h3>
-                <h3 className="price">$20.44</h3>
+                <h3 className="price">₹{Price || Amount}</h3>
+                <h3 className="price">₹{Quantity || 0}</h3>
+                <h3 className="price">₹0</h3>
+                <h3 className="price">₹20.44</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  ${totalAmount}
+                  ₹{totalAmount || Amount + 20.44}
                 </h3>
               </div>
+
             </div>
               <button className="makePayment" style={{marginTop:"60px"}}
                onClick={() =>

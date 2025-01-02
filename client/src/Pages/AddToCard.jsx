@@ -83,6 +83,8 @@ const Cart = () => {
   
     navigate("/checkout", { state: itemDetails });
   };
+
+  localStorage.setItem("cart", JSON.stringify(cart));
   
   
 
@@ -132,7 +134,7 @@ const Cart = () => {
                 <h3 className="price">-${discount.toFixed(2)}</h3>
                 <h3 className="price">${delivery.toFixed(2)}</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  ${total}
+                  ${subtotal}
                 </h3>
               </div>
             </div>
