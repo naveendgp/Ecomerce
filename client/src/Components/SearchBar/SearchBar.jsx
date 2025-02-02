@@ -7,6 +7,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
+    onSearch(e.target.value);
   };
 
   const handleKeyPress = (e) => {
