@@ -23,6 +23,7 @@ const Home = () => {
         const response = await fetch("http://localhost:5000/api/products");
         const data = await response.json();
         setBooks(data);
+        console.log(data)
         setFilteredBooks(data); // Initialize filteredBooks with all books
       } catch (error) {
         console.error("Error fetching books:", error);

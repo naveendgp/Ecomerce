@@ -1,8 +1,12 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Cart from "../../assets/cart.png";
+import bookimg from '../../assets/bookcover.jpeg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
-const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
-  const bookData = { BookTitle, Author, Price, BookImage };
+const BookCard = ({ BookImage, BookTitle, Author, Price, PublishedDate, Pages, Rating }) => {
+  const bookData = { BookTitle, Author, Price, BookImage, PublishedDate, Pages, Rating };
 
   const addToCart = async () => {
     if (!BookTitle || !Author || !Price || !BookImage) {
@@ -30,7 +34,6 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
       });
   
       const data = await response.json();
-  
       if (response.ok) {
         alert('Item added to cart successfully');
       } else {
@@ -41,7 +44,6 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
       alert('An error occurred while adding to cart');
     }
   };
-  
 
   return (
     <>

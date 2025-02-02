@@ -9,14 +9,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import googlepay from "../assets/google-pay.png";
 import { useLocation } from "react-router-dom";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PopupCard from "../Components/PopupCard/PopupCard";
 
 const CheckOut = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { BookTitle, Author, Price, BookImage, Quantity } = location.state || {};
-
+  const { BookTitle, Author, Price, BookImage, Quantity } =
+    location.state || {};
 
   const [address, setAddress] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -35,15 +35,16 @@ const CheckOut = () => {
     setAddress(addressData); // Save the address data
   };
 
-  const totalAmount =Quantity * Price + 20.44;
+  const totalAmount = Quantity * Price + 20.44;
 
   const card = localStorage.getItem("cart");
   console.log(card);
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const Amount = cart.reduce((total, product) => {
-    return total + product.Price; // Sum of Quantity * Price for each product
-  }, 0) + 20.44; // Add the delivery fee (₹20.44)
+  const Amount =
+    cart.reduce((total, product) => {
+      return total + product.Price; // Sum of Quantity * Price for each product
+    }, 0) + 20.44; // Add the delivery fee (₹20.44)
   console.log(Amount);
 
   const amt = localStorage.getItem("amt");
@@ -63,9 +64,20 @@ const CheckOut = () => {
 
             {address ? (
               <>
-                <h2 style={{ fontWeight: 'bold', fontSize: '20px', color: '#333' }}>Address</h2>
-                <AddressCard address={address} changeAddress={() => setIsPopupOpen(true)} />
-                </>
+                <h2
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                    color: "#333",
+                  }}
+                >
+                  Address
+                </h2>
+                <AddressCard
+                  address={address}
+                  changeAddress={() => setIsPopupOpen(true)}
+                />
+              </>
             ) : (
               <div className="h-32 mt-6">
                 <h1>Add Address</h1>
@@ -79,39 +91,56 @@ const CheckOut = () => {
               </div>
             )}
 
-            <h3 className="paymentTitle" style={{ fontWeight: 'bold', fontSize: '20px', color: '#333' }}>Payment Method</h3>
+            <h3
+              className="paymentTitle"
+              style={{ fontWeight: "bold", fontSize: "20px", color: "#333" }}
+            >
+              Payment Method
+            </h3>
 
             <div className="paymentContainer">
-      {/* Card Payment */}
-      <div
-        className={`paymentCard ₹{selectedMethod === "card" ? "selected" : ""}`}
-        onClick={() => handleSelect("card")}
-      >
-        <FontAwesomeIcon icon={faCreditCard} className="paymentIcon" />
-        <h4 className="iconInfo">Card</h4>
-      </div>
+              {/* Card Payment */}
+              <div
+                className={`paymentCard ₹{selectedMethod === "card" ? "selected" : ""}`}
+                onClick={() => handleSelect("card")}
+              >
+                <FontAwesomeIcon icon={faCreditCard} className="paymentIcon" />
+                <h4 className="iconInfo">Card</h4>
+              </div>
 
-      {/* Google Pay */}
-      <div
-        className={`paymentCard ₹{selectedMethod === "googlepay" ? "selected" : ""}`}
-        onClick={() => handleSelect("googlepay")}
-      >
-        <img src={googlepay} alt="Google Pay" className="gpayIcon" />
-        <h4 className="gpayInfo">Google Pay</h4>
-      </div>
+              {/* Google Pay */}
+              <div
+                className={`paymentCard ₹{selectedMethod === "googlepay" ? "selected" : ""}`}
+                onClick={() => handleSelect("googlepay")}
+              >
+                <img src={googlepay} alt="Google Pay" className="gpayIcon" />
+                <h4 className="gpayInfo">Google Pay</h4>
+              </div>
 
-      {/* Bank Payment */}
-      <div
-        className={`paymentCard ₹{selectedMethod === "bank" ? "selected" : ""}`}
-        onClick={() => handleSelect("bank")}
-      >
-        <FontAwesomeIcon icon={faBuildingColumns} className="paymentIcon" />
-        <h4 className="iconInfo">Bank</h4>
-      </div>
-    </div>
+              {/* Bank Payment */}
+              <div
+                className={`paymentCard ₹{selectedMethod === "bank" ? "selected" : ""}`}
+                onClick={() => handleSelect("bank")}
+              >
+                <FontAwesomeIcon
+                  icon={faBuildingColumns}
+                  className="paymentIcon"
+                />
+                <h4 className="iconInfo">Bank</h4>
+              </div>
+            </div>
           </section>
 
-          <div className="orderSummary" style={{height:"350px"}}>
+          <div className="orderSummary " style={{ height: "380px" }}>
+            <div className="mt-5 border p-2 w-[40vh] outline-none rounded-md flex justify-between">
+              <input
+                type="text"
+                placeholder="Promo Code"
+                className="outline-none"
+              />
+              <button className="bg-blue-800 text-white px-2 py-1 rounded-md">Redeem</button>
+            </div>
+
             <h3 className="orderTitle">Order Summary</h3>
             <div className="priceContainer">
               <div className="part">
@@ -133,15 +162,25 @@ const CheckOut = () => {
 </h3>
 
               </div>
-
             </div>
-              <button className="makePayment" style={{marginTop:"60px"}}
-               onClick={() =>
+            <button
+              className="makePayment"
+              style={{ marginTop: "40px" }}
+              onClick={() =>
                 navigate("/pay", {
-                  state: { BookTitle, Author, totalAmount, BookImage,address,Quantity },
+                  state: {
+                    BookTitle,
+                    Author,
+                    totalAmount,
+                    BookImage,
+                    address,
+                    Quantity,
+                  },
                 })
               }
-              >Make Payment</button>
+            >
+              Make Payment
+            </button>
           </div>
         </div>
 
@@ -161,7 +200,5 @@ const CheckOut = () => {
     </>
   );
 };
-
-
 
 export default CheckOut;

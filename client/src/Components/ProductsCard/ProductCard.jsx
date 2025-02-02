@@ -15,7 +15,7 @@ const ProductCard = ({ title, author, price, book, coverImage }) => {
           <h3 className="prodCardTitle">
             {title} - {author}
           </h3>
-          <h3 className="prodCardPrice">${price}</h3>
+          <h3 className="prodCardPrice">₹{price}</h3>
           <div className="buyContainer">
             <button
               onClick={() =>

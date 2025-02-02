@@ -11,6 +11,8 @@ import AdminDashbaord from "./Pages/Admin/AdminDashboard";
 import AddProduct from "./Pages/Admin/AddProduct";
 import Orders from "./Pages/Admin/Orders";
 import '@fontsource/poppins';
+import LoginPage from "./LoginPage";
+import SignupPage from "./SignupPage";
 
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/loginpage" element={<LoginPage />} />
+        <Route path="/signuppage" element={<SignupPage />} />
         <Route path="/bookdetails" element={<ProductPage />} />
         <Route path="/addtocart" element={<AddToCard />} />
         <Route path="/checkout" element={<CheckOut />} />
