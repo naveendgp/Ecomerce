@@ -45,7 +45,7 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
 
   return (
     <>
-      <section className="border border-gray rounded-md h-[55vh] bg-gray-100 ">
+      <section className="border border-gray rounded-md h-[60vh] bg-gray-100 ">
         <div className="rounded-md p-4 flex-shrink-0">
           <img
             src={BookImage}
@@ -56,7 +56,7 @@ const BookCard = ({ BookImage, BookTitle, Author, Price }) => {
         <div>
           <h1 className="text-2xl p-2 ml-2 truncate">{BookTitle}</h1>
           <p className="ml-4">{Author}</p>
-          <p className="ml-4 mt-2">${Price}</p>
+          <p className="ml-4 mt-2">₹{Price}</p>
           <div className="flex mt-10 justify-center items-center mb-4">
             <Link
               to="/bookdetails"

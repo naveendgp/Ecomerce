@@ -66,7 +66,7 @@ const Navigation = ({OnSearch}) => {
         {/* Logo */}
         <Link to="/">
           <h1 className="text-2xl mr-5 text-blue-900 font-semibold font-poppins">
-            Ecommerce
+            Sri Pon Arachalaiamman
           </h1>
         </Link>
 
@@ -74,7 +74,7 @@ const Navigation = ({OnSearch}) => {
         <SearchBar onSearch={OnSearch} />
 
       {/* Slider Icon */}
-      <div className="bg-gray-100 border-gray-400 py-3 ml-[150px] px-4 rounded-full">
+      <div className="bg-gray-100 border-gray-400 py-3 ml-[200px] px-4 rounded-full" style={{marginLeft: "-50px"}}>
         <FontAwesomeIcon icon={faSliders} className="text-xl text-blue-900" />
       </div>
 
@@ -92,7 +92,7 @@ const Navigation = ({OnSearch}) => {
        
 
       {/* User Login/Logout Section */}
-      <div className="w-[36vw] flex justify-end">
+      <div className="w-[30vw] flex justify-end">
         <div className=" flex items-center space-x-4">
           {user ? (
             

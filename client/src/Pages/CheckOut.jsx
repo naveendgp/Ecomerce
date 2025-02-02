@@ -46,6 +46,8 @@ const CheckOut = () => {
   }, 0) + 20.44; // Add the delivery fee (₹20.44)
   console.log(Amount);
 
+  const amt = localStorage.getItem("amt");
+
 
   return (
     <>
@@ -122,13 +124,14 @@ const CheckOut = () => {
                 </h3>
               </div>
               <div className="part">
-                <h3 className="price">₹{Price || Amount}</h3>
+                <h3 className="price">₹{amt}</h3>
                 <h3 className="price">₹{Quantity || 0}</h3>
                 <h3 className="price">₹0</h3>
                 <h3 className="price">₹20.44</h3>
                 <h3 className="price" style={{ color: "black" }}>
-                  ₹{totalAmount || Amount + 20.44}
-                </h3>
+  ₹{amt}
+</h3>
+
               </div>
 
             </div>

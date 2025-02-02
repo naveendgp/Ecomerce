@@ -54,16 +54,14 @@ const AddProduct = () => {
   return (
     <section className="flex bg-[#161B21] h-screen">
       <Sidenav />
-
+  
       <div className="flex flex-col w-full m-12">
         <h1 className="text-white text-3xl">Add Product</h1>
-
+  
         <section className="flex justify-between mt-8">
           <div className="bg-gray-800 w-[60%] rounded-md p-4 h-[80vh] overflow-y-auto">
-            <h1 className="text-white text-2xl m-3 text-center">
-              Base Information
-            </h1>
-
+            <h1 className="text-white text-2xl m-3 text-center">Base Information</h1>
+  
             <h1 className="text-white text-xl mt-10 ml-3">Book Title</h1>
             <input
               type="text"
@@ -73,7 +71,7 @@ const AddProduct = () => {
               placeholder="Book Title..."
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
             />
-
+  
             <h1 className="text-white text-xl ml-3">Author Name</h1>
             <input
               type="text"
@@ -83,7 +81,7 @@ const AddProduct = () => {
               placeholder="Author Name..."
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
             />
-
+  
             <h1 className="text-white text-xl ml-3">Book Price</h1>
             <input
               type="text"
@@ -93,7 +91,7 @@ const AddProduct = () => {
               placeholder="Book Price..."
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
             />
-
+  
             <h1 className="text-white text-xl ml-3">Book Quantity</h1>
             <input
               type="text"
@@ -103,17 +101,21 @@ const AddProduct = () => {
               placeholder="Book Quantity..."
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
             />
-
+  
             <h1 className="text-white text-xl ml-3">Category</h1>
-            <input
-              type="text"
+            <select
               name="category"
               value={formData.category}
               onChange={handleChange}
-              placeholder="Book Category..."
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
-            />
-
+            >
+              <option value="" disabled>Select a category</option>
+              <option value="Fictional">Fictional</option>
+              <option value="Novel">Novel</option>
+              <option value="Scientific">Scientific</option>
+              <option value="Education">Education</option>
+            </select>
+  
             <h1 className="text-white text-xl ml-3">Upload Image</h1>
             <input
               type="file"
@@ -121,7 +123,7 @@ const AddProduct = () => {
               onChange={handleImageChange}
               className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
             />
-
+  
             <div className="flex flex-col ">
               <h1 className="text-white text-xl ml-3">Description</h1>
               <textarea
@@ -136,7 +138,7 @@ const AddProduct = () => {
                 placeholder="Book Description..."
                 className="w-96 m-4 p-2 rounded-md border border-gray-500 resize-none bg-zinc-700 outline-none text-gray-200"
               />
-
+  
               <button
                 onClick={handleSubmit}
                 className="text-white py-2 ml-5 px-3 w-fit mt-5 bg-gray-700 rounded-md"
@@ -150,6 +152,7 @@ const AddProduct = () => {
       </div>
     </section>
   );
+  
 };
 
 export default AddProduct;

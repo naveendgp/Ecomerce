@@ -7,44 +7,47 @@ const CartItems = ({ BookImage, BookTitle, Author, Price, onQuantityChange, init
   const [count, setCount] = useState(initialCount || 1);
 
   const handleCountChange = (newCount) => {
-    setCount(newCount);
-    // Pass the updated count and updated price (Price * count) to the parent component
-    onQuantityChange(BookTitle, newCount, Price * newCount);
+    // Ensure count doesn't go below 0
+    if (newCount >= 0) {
+      setCount(newCount);
+      onQuantityChange(BookTitle, newCount); // Notify parent about the updated count
+    }
   };
 
-    return (
-      <>
-        <div className="cartProdContainer bg-gray-100">
-          <div className="cartImageContainer">
-            <img src={BookImage} alt="" className="object-fit" />
-          </div>
+  return (
+    <div className="cartProdContainer bg-gray-100">
+      <div className="cartImageContainer">
+        <img src={BookImage} alt="" className="object-fit" />
+      </div>
 
       <div className="cartProdName">
         <h3>{BookTitle}</h3>
         <p>{Author}</p>
       </div>
 
-          <div className="cartQtyController">
-            <button
-              className="qtyMinusBtn"
-              onClick={() => setCount(count > 0 ? count - 1 : 0)}
-            >
-              <FontAwesomeIcon icon={faMinus} />
-            </button>
+      <div className="cartQtyController">
+        <button
+          className="qtyMinusBtn"
+          onClick={() => handleCountChange(count - 1)}
+        >
+          <FontAwesomeIcon icon={faMinus} />
+        </button>
 
-            <h3>{count}</h3>
-            
-            <button className="qtyBtn" onClick={() => setCount(count + 1)}>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </div>
+        <h3>{count}</h3>
 
-          <div className="cartProdPrice">
-            <h3>{Price * count}</h3>
-          </div>
-        </div>
-      </>
-    );
-}
+        <button
+          className="qtyBtn"
+          onClick={() => handleCountChange(count + 1)}
+        >
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
+      </div>
+
+      <div className="cartProdPrice">
+        <h3>₹{(Price * count).toFixed(2)}</h3>
+      </div>
+    </div>
+  );
+};
 
 export default CartItems;

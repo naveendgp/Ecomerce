@@ -22,7 +22,7 @@ const ProductTable = ({ response }) => {
                   className="text-white text-center mt-10 border-b border-gray-700"
                 >
                   <td className="p-4 truncate max-w-[200px]">{product.title}</td>
-                  <td className="p-2">${product.price}</td>
+                  <td className="p-2">₹s{product.price}</td>
                   <td className="p-2">{product.quantity}</td>
                   <td className="p-2">{product.category}</td>
                 </tr>
