@@ -40,27 +40,35 @@ const Cart = () => {
     fetchCartData();
   }, [navigate]);
 
-  const updateTotalPrice = (title, newCount, newPrice) => {
-    let updatedCart = [...cart];
-    updatedCart = updatedCart.map((item) => 
-      item.BookTitle === title ? { ...item, count: newCount, updatedPrice: newPrice } : item
+  const updateTotalPrice = (title, newCount) => {
+    const updatedCart = cart.map((item) =>
+      item.BookTitle === title
+        ? { ...item, count: newCount, updatedPrice: item.Price * newCount }
+        : item
     );
     setCart(updatedCart);
-
-    const newTotal = updatedCart.reduce((total, item) => total + item.updatedPrice, 0);
+  
+    // Dynamically calculate the total
+    const newTotal = updatedCart.reduce(
+      (total, item) => total + (item.updatedPrice || item.Price),
+      0
+    );
     setTotal(newTotal);
   };
-
+  
+  
   const calculateTotal = () => {
-    let subtotal = 0;
-    cart.forEach((item) => {
-      subtotal += item.Price * (item.count || 1);
-    });
-    const discount =  0;
-    const delivery = 0.00;
-    const total = subtotal + delivery;
-    return { subtotal, discount, delivery, total };
+    const subtotal = cart.reduce(
+      (total, item) => total + (item.updatedPrice || item.Price * (item.count || 1)),
+      0
+    );
+    const discount = 0; // Implement discount logic if needed
+    const delivery = 0.0; // Delivery charges
+  
+    return { subtotal, discount, delivery };
   };
+  
+  
 
   const { subtotal, discount, delivery } = calculateTotal();
 
@@ -85,6 +93,11 @@ const Cart = () => {
   };
 
   localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("amt",subtotal);
+  localStorage.setItem("book",cart[0].BookTitle)
+console.log("card",cart[0].BookTitle)
+
+
   
   
 
@@ -121,23 +134,25 @@ const Cart = () => {
               <button className="apply mb-1 border border-black">Apply</button>
             </div>
             <div className="priceContainer">
-              <div className="part">
-                <h3 className="price">SubTotal</h3>
-                <h3 className="price">Discount</h3>
-                <h3 className="price">Delivery</h3>
-                <h3 className="price" style={{ color: "black" }}>
-                  Total
-                </h3>
-              </div>
-              <div className="part">
-                <h3 className="price">${subtotal.toFixed(2)}</h3>
-                <h3 className="price">-${discount.toFixed(2)}</h3>
-                <h3 className="price">${delivery.toFixed(2)}</h3>
-                <h3 className="price" style={{ color: "black" }}>
-                  ${subtotal}
-                </h3>
-              </div>
-            </div>
+  <div className="part">
+    <h3 className="price">SubTotal</h3>
+    <h3 className="price">Discount</h3>
+    <h3 className="price">Delivery</h3>
+    <h3 className="price" style={{ color: "black" }}>
+      Total
+    </h3>
+  </div>
+  <div className="part">
+    <h3 className="price">₹{subtotal.toFixed(2)}</h3>
+    <h3 className="price">₹{discount.toFixed(2)}</h3>
+    <h3 className="price">₹{delivery.toFixed(2)}</h3>
+    <h3 className="price" style={{ color: "black" }}>
+    ₹{(subtotal + delivery).toFixed(2)}
+    </h3>
+  </div>
+</div>
+
+
             <button onClick={handleCheckout} className="apply checkoutBtn">
               Checkout
             </button>

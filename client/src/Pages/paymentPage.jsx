@@ -11,18 +11,27 @@ const QRCodeDisplay = () => {
   // Destructure data passed via location.state
   const { BookTitle, Author, totalAmount, BookImage, address, Quantity } = location.state || {};
 
-  const qrData = JSON.stringify({ BookTitle, totalAmount });
+const amt = localStorage.getItem("amt");
+const book = localStorage.getItem("book");
+
+
+const BookTitl = BookTitle || book || "No Book Title";
+const totalAmoun = totalAmount || amt || 0;
+
+// Join all titles into a single string
+
+  const qrData = JSON.stringify({ BookTitl, totalAmoun });
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
 
   const handlePay = async () => {
     try {
-      alert(`Proceeding to pay for ${BookTitle} with price ₹${totalAmount}`);
+      alert(`Proceeding to pay for ${BookTitl} with price ₹${totalAmoun}`);
 
       // Create an array for the products data
       const products = [{
-        BookTitle,
+        BookTitle:BookTitl,
         Author,
-        Price: totalAmount,
+        Price: totalAmoun,
         BookImage,
         quantity: Quantity,
         

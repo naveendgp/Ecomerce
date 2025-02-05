@@ -89,7 +89,7 @@ const Home = () => {
                 image={mortarboard}
                 categoryColor={"bg-yellow-300"}
                 imageColor={"bg-amber-400"}
-                onClick={() => handleCategorySelection("Programming")}
+                onClick={() => handleCategorySelection("Education")}
               />
               <CategoriesCard
                 Category={"Fictional"}
@@ -105,13 +105,7 @@ const Home = () => {
                 imageColor={"bg-green-400"}
                 onClick={() => handleCategorySelection("Novel")}
               />
-              <CategoriesCard
-                Category={"Poetry"}
-                image={ink}
-                categoryColor={"bg-purple-300"}
-                imageColor={"bg-purple-400"}
-                onClick={() => handleCategorySelection("Poetry")}
-              />
+              
             </div>
           </div>
 

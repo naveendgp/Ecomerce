@@ -19,7 +19,7 @@ const PopupCard = ({ cancel, onSave }) => {
   };
 
   return (
-    <section className="border flex border-gray-200 outline-none rounded-md w-[40vw] h-[60vh] bg-white">
+    <section className="border flex border-gray-200 outline-none rounded-md w-[40vw] h-[65vh] bg-white">
       <div className="m-10 w-full flex flex-col items-center">
         <h1 className="text-center text-3xl ">Add Address</h1>
         <div className="flex justify-between w-[28.5vw] mt-5">
