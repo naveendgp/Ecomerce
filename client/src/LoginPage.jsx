@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const LoginPage = () => {
@@ -48,6 +49,12 @@ const LoginPage = () => {
               <FontAwesomeIcon icon={faGoogle} className="mr-2" />
               Continue with Google
             </button>
+            <div className="flex mt-5 space-x-3">
+              <h1>Don't have an account{" "}</h1>
+              <Link className="text-blue" to={"/signuppage"}>
+                <h1> Create Account?</h1>
+              </Link>
+            </div>
           </div>
         </form>
       </div>

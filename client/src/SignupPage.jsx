@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const SignupPage = () => {
   return (
@@ -7,7 +7,10 @@ const SignupPage = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
         <form>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -18,7 +21,10 @@ const SignupPage = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -29,7 +35,10 @@ const SignupPage = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirm-password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="confirm-password"
+            >
               Confirm Password
             </label>
             <input
@@ -47,6 +56,12 @@ const SignupPage = () => {
               Sign Up
             </button>
           </div>
+          <div className="flex mt-5 space-x-3">
+            <h1>Already have an account</h1>
+            <Link className="text-blue" to={"/Loginpage"}>
+              <h1>Login</h1>
+            </Link>
+          </div>
         </form>
       </div>
     </div>
@@ -54,4 +69,3 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
- 

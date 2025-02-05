@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from '../../assets/logo.jpg'
 import {
   faBagShopping,
   faSliders,
@@ -64,7 +65,8 @@ const Navigation = ({OnSearch}) => {
     >
       <div className="flex items-center space-x-4 w-full">
         {/* Logo */}
-        <Link to="/">
+        <Link to="/" className="flex justify-center items-center">
+          <img src={logo} alt="Logo" className="w-12 h-12" />
           <h1 className="text-2xl mr-5 text-blue-900 font-semibold font-poppins">
             Sri Pon Arachalaiamman
           </h1>
