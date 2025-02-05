@@ -2,8 +2,29 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    const response = await fetch("http://localhost:5000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    if (data.error) {
+      alert(data.error);
+    }
+    if (data.message) {
+      alert(data.message);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
@@ -21,6 +42,7 @@ const LoginPage = () => {
               id="email"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Enter your email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -35,11 +57,13 @@ const LoginPage = () => {
               id="password"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Enter your password"
+              onAbort={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="flex flex-col items-center justify-center">
             <button
               type="submit"
+              onClick={handleSubmit}
               className="w-60 bg-blue-800 border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Sign In
@@ -50,7 +74,7 @@ const LoginPage = () => {
               Continue with Google
             </button>
             <div className="flex mt-5 space-x-3">
-              <h1>Don't have an account{" "}</h1>
+              <h1>Don't have an account </h1>
               <Link className="text-blue" to={"/signuppage"}>
                 <h1> Create Account?</h1>
               </Link>
