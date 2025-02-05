@@ -1,84 +1,109 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import Cart from "../../assets/cart.png";
-import bookimg from '../../assets/bookcover.jpeg';
+import bookimg from "../../assets/bookcover.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
-const BookCard = ({ BookImage, BookTitle, Author, Price, PublishedDate, Pages, Rating }) => {
-  const bookData = { BookTitle, Author, Price, BookImage, PublishedDate, Pages, Rating };
+const BookCard = ({
+  BookImage,
+  BookTitle,
+  Author,
+  Price,
+  PublishedDate,
+  Pages,
+  Rating,
+}) => {
+  const bookData = {
+    BookTitle,
+    Author,
+    Price,
+    BookImage,
+    PublishedDate,
+    Pages,
+    Rating,
+  };
 
   const addToCart = async () => {
     if (!BookTitle || !Author || !Price || !BookImage) {
-      alert('Please fill in all the required fields');
+      alert("Please fill in all the required fields");
       return;
     }
 
-    const name = localStorage.getItem('name');
-    
+    const name = localStorage.getItem("name");
+
     const cartItemData = {
       BookTitle,
       Author,
       Price,
       BookImage,
-      name
+      name,
     };
-  
+
     try {
-      const response = await fetch('http://localhost:5000/api/cart/add', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/cart/add", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(cartItemData)
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItemData),
       });
-  
+
       const data = await response.json();
       if (response.ok) {
-        alert('Item added to cart successfully');
+        alert("Item added to cart successfully");
       } else {
-        alert(data.message || 'Failed to add item to cart');
+        alert(data.message || "Failed to add item to cart");
       }
     } catch (error) {
       console.error(error);
-      alert('An error occurred while adding to cart');
+      alert("An error occurred while adding to cart");
     }
   };
 
   return (
     <>
-      <section className="border border-gray rounded-md h-[60vh] bg-gray-100 ">
-        <div className="rounded-md p-4 flex-shrink-0">
-          <img
-            src={BookImage}
-            alt="book"
-            className="rounded-md w-full h-40 object-cover rounded-md"
-          />
-        </div>
-        <div>
-          <h1 className="text-2xl p-2 ml-2 truncate">{BookTitle}</h1>
-          <p className="ml-4">{Author}</p>
-          <p className="ml-4 mt-2">₹{Price}</p>
-          <div className="flex mt-10 justify-center items-center mb-4">
-            <Link
-              to="/bookdetails"
-              state={bookData} // Pass product data to the BookDetails page
-            >
-              <button className="bg-blue-900 text-white px-6 py-3 rounded-md">
-                Buy Now
-              </button>
+      <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white border p-6 transition-shadow duration-300 ease-in-out">
+        <img
+          className="w-full h-64 object-cover"
+          src={BookImage || bookimg}
+          alt="Book Cover"
+        />
+        <div className="p-4">
+          <h2 className="text-2xl font-bold mb-2 truncate">{BookTitle}</h2>
+          <p className="text-gray-600 mb-2 italic">by {Author}</p>
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-lg font-bold text-gray-800">₹{Price}</span>
+            <Link to="/bookdetails" state={bookData}>
+              <div className="flex items-center">
+                {Array.from({ length: 5 }, (_, index) => (
+                  <svg
+                    key={index}
+                    className={`w-5 h-5 ${
+                      index < Rating ? "text-yellow-500" : "text-gray-300"
+                    }`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
+                  </svg>
+                ))}
+              </div>
             </Link>
-
-            {/* Cart Button - Add to Cart functionality */}
-            <button 
-              onClick={addToCart} 
-              className="p-2 ml-5 rounded-md border border-gray-500"
-            >
-              <img src={Cart} alt="Add to Cart" className="w-8 p-1 border border-gray-100" />
-            </button>
           </div>
+
+          <button
+            onClick={addToCart}
+            className="flex items-center mt-4 p-2 rounded-lg border bg-blue-800 text-white hover:bg-gray-100 transition-colors duration-300"
+          >
+            <FontAwesomeIcon
+              icon={faShoppingBag}
+              className="text-white w-6 h-6"
+            />
+            <span className="ml-2">Add to Cart</span>
+          </button>
         </div>
-      </section>
+      </div>
     </>
   );
 };
