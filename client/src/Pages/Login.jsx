@@ -88,15 +88,15 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate('/home');
     }
   }, [user, navigate]);
 
   return (
-    <div className="gradient bg-dot-pattern h-screen">
+    <div className="gradient ">
       
-      <div className="main-content bg-dotted h-screen relative w-full  ">
-        <div className="absolute inset-0 bg-[radial-gradient(circle,white,transparent_1px)] bg-[length:50px_50px] pointer-events-none"></div>
+      <div className="main-content  ">
+        <div className="absolute "></div>
 
        
 
@@ -107,10 +107,10 @@ const Login = () => {
         ) : (
           <div className="relative p-6 rounded-lg">
             {/* Dotted background effect */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle,black_1px,transparent_1px)] bg-[length:20px_20px] pointer-events-none rounded-lg"></div>
+            <div className="absolute inset-0 "></div>
 
             <button
-              style={{ backgroundColor: "#7ED6DF", color: "black" }}
+              style={{  color: "black" }}
               onClick={handleGoogleSignIn}
               disabled={isSigningIn}
               className="googlebutton mt-4 rounded-pill relative z-10"

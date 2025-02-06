@@ -3,49 +3,50 @@ import Navigation from "../Components/TopNavigation/Navigation";
 import CardBanner from "../Components/CardBanner/CardBanner";
 import BookCard from "../Components/BookCard/BookCard";
 import CategoriesCard from "../Components/BookCard/CategoriesCard";
-import SearchBar from "../Components/SearchBar/SearchBar";
 import space from "../assets/space.png";
 import rocket from "../assets/rocket.png";
 import mortarboard from "../assets/mortarboard.png";
-import ink from "../assets/ink.png";
 import history from "../assets/history.png";
-import BookCover from '../assets/bookcover.jpeg';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Fetch book data from an API
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await fetch("http://localhost:5000/api/products");
         const data = await response.json();
         setBooks(data);
-        console.log(data)
-        setFilteredBooks(data); // Initialize filteredBooks with all books
+        setFilteredBooks(data);
       } catch (error) {
         console.error("Error fetching books:", error);
       }
     };
-
     fetchBooks();
   }, []);
 
-  // Handle category selection
+  const handleSort = (order) => {
+    const sortedBooks = [...filteredBooks].sort((a, b) => {
+      if (order === 'asc') {
+        return a.title.localeCompare(b.title);
+      } else {
+        return b.title.localeCompare(a.title);
+      }
+    });
+    setFilteredBooks(sortedBooks);
+  };
+
   const handleCategorySelection = (category) => {
     setSelectedCategory(category);
-    const updatedBooks =
-      category === "All"
-        ? books
-        : books.filter((book) => book.category === category);
+    const updatedBooks = category === "All" 
+      ? books 
+      : books.filter((book) => book.category === category);
     setFilteredBooks(updatedBooks);
   };
 
-  // Handle search input
   const handleSearch = (query) => {
-    console.log(query)
     const updatedBooks = books.filter((book) =>
       book.title.toLowerCase().includes(query.toLowerCase())
     );
@@ -54,15 +55,12 @@ const Home = () => {
 
   return (
     <>
-      <Navigation OnSearch={handleSearch} />
+      <Navigation OnSearch={handleSearch} onSort={handleSort} />
       <section className="main mt-20">
         <div className="Home">
           <div className="mt-10">
             <CardBanner />
           </div>
-
-          {/* Search Bar */}
-          
 
           <div>
             <h2 className="text-2xl font-semibold mt-10 font-poppins">
@@ -70,42 +68,40 @@ const Home = () => {
             </h2>
             <div className="flex">
               <CategoriesCard
-                Category={"All"}
+                Category="All"
                 image={space}
-                categoryColor={"bg-red-300"}
-                imageColor={"bg-red-400"}
+                categoryColor="bg-red-300"
+                imageColor="bg-red-400"
                 onClick={() => handleCategorySelection("All")}
               />
-             
               <CategoriesCard
-                Category={"Scientific"}
+                Category="Scientific"
                 image={rocket}
-                categoryColor={"bg-blue-300"}
-                imageColor={"bg-blue-600"}
+                categoryColor="bg-blue-300"
+                imageColor="bg-blue-600"
                 onClick={() => handleCategorySelection("Scientific")}
               />
               <CategoriesCard
-                Category={"Education"}
+                Category="Education"
                 image={mortarboard}
-                categoryColor={"bg-yellow-300"}
-                imageColor={"bg-amber-400"}
+                categoryColor="bg-yellow-300"
+                imageColor="bg-amber-400"
                 onClick={() => handleCategorySelection("Education")}
               />
               <CategoriesCard
-                Category={"Fictional"}
+                Category="Fictional"
                 image={space}
-                categoryColor={"bg-pink-300"}
-                imageColor={"bg-pink-400"}
+                categoryColor="bg-pink-300"
+                imageColor="bg-pink-400"
                 onClick={() => handleCategorySelection("Fictional")}
               />
               <CategoriesCard
-                Category={"Novel"}
+                Category="Novel"
                 image={history}
-                categoryColor={"bg-green-300"}
-                imageColor={"bg-green-400"}
+                categoryColor="bg-green-300"
+                imageColor="bg-green-400"
                 onClick={() => handleCategorySelection("Novel")}
               />
-              
             </div>
           </div>
 
@@ -117,6 +113,7 @@ const Home = () => {
                 Author={book.author}
                 Price={book.price}
                 BookImage={book.image}
+                Rating={book.rating}
               />
             ))}
           </div>

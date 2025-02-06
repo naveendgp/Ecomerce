@@ -1,44 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const SignupPage = () => {
-
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate()
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+  const validatePassword = () => {
+    if (password.length < 8) {
+      return "Password must be at least 8 characters long";
+    }
+    if (password !== confirmPassword) {
+      return "Passwords don't match";
+    }
+    return null;
+  };
 
-   try {
-     const response = await fetch("http://localhost:5000/api/register", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify({ email, password, confirmPassword }),
-     });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-     if (!response.ok) {
-       const errorData = await response.json();
-       alert(errorData.error || "An error occurred");
-       return;
-     }
+    const passwordError = validatePassword();
+    if (passwordError) {
+      setError(passwordError);
+      return;
+    }
 
-     const data = await response.json();
+    try {
+      const response = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password, confirmPassword }),
+      });
 
-     if (data.error) {
-       alert(data.error);
-     } else if (data.message) {
-       alert(data.message);
-     }
-   } catch (error) {
-     alert("Something went wrong, please try again later.");
-     console.error("Error:", error);
-   }
- };
+      const data = await response.json();
+      
+      if (!response.ok) {
+        setError(data.error || "Registration failed");
+        return;
+      }
+
+      alert(data.message);
+      navigate("/");
+      // Add navigation logic here
+    } catch (err) {
+      setError("Connection error. Please try again.");
+      console.error(err);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
