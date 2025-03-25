@@ -21,7 +21,7 @@ app.use('/api/login', loginRouter);
 
 
 const PORT = 5000;
-const MONGO_URI ='mongodb://localhost:27017/booksdb';
+const MONGO_URI ="mongodb+srv://myAtlasDBUser:naveen2004@myatlasclusteredu.w6vrt.mongodb.net/?retryWrites=true&w=majority&appName=myAtlasClusterEDU";
 
 mongoose
     .connect(MONGO_URI)
